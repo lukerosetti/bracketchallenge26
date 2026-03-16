@@ -14,7 +14,6 @@
     }
     body { font-family: 'Inter', sans-serif; background: linear-gradient(180deg, var(--navy) 0%, #0a1628 100%); color: #fff; min-height: 100vh; }
     
-    /* Header */
     .header { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%); padding: 16px 20px; border-bottom: 4px solid; border-image: repeating-linear-gradient(90deg, var(--red) 0px, var(--red) 30px, #fff 30px, #fff 60px, var(--blue) 60px, var(--blue) 90px) 1; }
     .header-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
     .header-left { display: flex; align-items: center; gap: 14px; }
@@ -24,7 +23,6 @@
     .header-title .subtitle { font-size: 14px; color: var(--gold); letter-spacing: 3px; }
     .jersey-number { font-family: 'Bebas Neue', sans-serif; font-size: 42px; color: #fff; background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%); padding: 4px 14px; border-radius: 8px; border: 2px solid var(--gold); line-height: 1; }
     
-    /* Race */
     .race-container { background: rgba(0,0,0,0.3); border-radius: 12px; padding: 16px; margin-top: 8px; }
     .race-title { font-family: 'Bebas Neue', sans-serif; font-size: 16px; color: rgba(255,255,255,0.6); letter-spacing: 2px; margin-bottom: 12px; }
     .race-lanes { display: flex; flex-direction: column; gap: 8px; }
@@ -38,19 +36,16 @@
     .race-pill { background: rgba(255,255,255,0.1); padding: 6px 12px; border-radius: 20px; font-size: 11px; color: rgba(255,255,255,0.8); }
     .race-pill strong { color: var(--gold); }
     
-    /* Tabs */
     .tabs { display: flex; gap: 4px; padding: 12px 16px; background: rgba(0,0,0,0.2); overflow-x: auto; }
     .tab { display: flex; align-items: center; gap: 8px; padding: 10px 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: rgba(255,255,255,0.6); cursor: pointer; transition: all 0.2s; white-space: nowrap; }
     .tab:hover { background: rgba(255,255,255,0.1); }
     .tab.active { background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%); color: #fff; border-color: var(--gold); }
     .tab-number { width: 22px; height: 22px; background: rgba(255,255,255,0.2); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 14px; }
     
-    /* Content */
     .content { padding: 16px; }
     .panel { display: none; }
     .panel.active { display: block; }
     
-    /* Standings */
     .standings-list { display: flex; flex-direction: column; gap: 12px; }
     .standing-card { display: flex; align-items: center; gap: 14px; padding: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; }
     .standing-card:first-child { background: linear-gradient(135deg, rgba(255,215,0,0.15), rgba(255,180,0,0.08)); border-color: rgba(255,215,0,0.3); }
@@ -65,7 +60,6 @@
     .points-current { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: var(--gold); line-height: 1; }
     .points-potential { font-size: 12px; color: rgba(255,255,255,0.5); }
     
-    /* Bracket */
     .bracket-region-tabs { display: flex; gap: 6px; margin-bottom: 16px; overflow-x: auto; padding-bottom: 4px; }
     .region-tab { flex: 1; min-width: 60px; padding: 10px 8px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; text-align: center; cursor: pointer; transition: all 0.2s; }
     .region-tab:hover { background: rgba(255,255,255,0.1); }
@@ -111,7 +105,6 @@
     .championship-label { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 2px; color: var(--gold); margin-bottom: 12px; }
     .championship-teams { display: flex; flex-direction: column; gap: 8px; }
     
-    /* Live Tab */
     .live-games { display: flex; flex-direction: column; gap: 12px; }
     .live-game { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; overflow: hidden; }
     .live-game.is-live { border-color: rgba(239,68,68,0.5); background: rgba(239,68,68,0.08); }
@@ -126,7 +119,6 @@
     .no-games { text-align: center; padding: 48px 20px; color: rgba(255,255,255,0.5); }
     .no-games-icon { font-size: 48px; margin-bottom: 12px; }
     
-    /* Scoring Tab */
     .scoring-section { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 16px; margin-bottom: 16px; }
     .scoring-title { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 1px; margin-bottom: 12px; color: var(--gold); }
     .scoring-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
@@ -139,7 +131,7 @@
     .multiplier-seeds { font-size: 12px; color: rgba(255,255,255,0.6); margin-bottom: 4px; }
     .multiplier-value { font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: var(--green); }
     
-    /* ===== DRAFT TAB - ESPN STYLE ===== */
+    /* Draft Styles */
     .draft-controls { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
     .draft-btn { padding: 10px 20px; border: none; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 6px; }
     .draft-btn:hover { transform: translateY(-2px); }
@@ -148,7 +140,6 @@
     .draft-btn.danger { background: linear-gradient(135deg, var(--red), var(--red-dark)); color: #fff; }
     .draft-btn.secondary { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2); }
     
-    /* On The Clock */
     .on-the-clock { background: rgba(0,0,0,0.4); border-radius: 12px; padding: 16px; margin-bottom: 16px; text-align: center; position: relative; overflow: hidden; }
     .on-the-clock.warning { animation: borderPulse 1s infinite; }
     .on-the-clock.critical { animation: borderPulse 0.5s infinite; }
@@ -167,18 +158,16 @@
     .up-next-avatars { display: flex; gap: 6px; }
     .up-next-avatar { width: 28px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: #fff; }
     
-    /* Draft Layout */
     .draft-layout { display: flex; gap: 12px; flex-wrap: wrap; }
     .draft-main { flex: 1; min-width: 300px; }
     .draft-sidebar { width: 200px; flex-shrink: 0; }
-    @media (max-width: 600px) { .draft-sidebar { width: 100%; } }
+    @media (max-width: 700px) { .draft-sidebar { width: 100%; } }
     
-    /* War Room */
     .war-room { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 16px; }
     @media (max-width: 500px) { .war-room { grid-template-columns: 1fr; } }
     .war-room-player { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 10px; transition: all 0.3s; }
     .war-room-player.active { border-color: var(--green); box-shadow: 0 0 15px rgba(0,212,170,0.2); }
-    .war-room-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .war-room-header { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
     .war-room-avatar { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: #fff; }
     .war-room-info { flex: 1; }
     .war-room-name { font-size: 13px; font-weight: 600; }
@@ -188,47 +177,77 @@
     .war-room-grade.grade-b { color: var(--gold); }
     .war-room-grade.grade-c { color: #f59e0b; }
     .war-room-grade.grade-d { color: #ef4444; }
-    .region-bars { display: flex; gap: 2px; margin-bottom: 6px; }
+    .war-room-stats { display: flex; gap: 8px; margin-bottom: 6px; font-size: 9px; }
+    .war-room-stat { background: rgba(255,255,255,0.05); padding: 3px 6px; border-radius: 4px; }
+    .region-bars { display: flex; gap: 2px; margin-bottom: 5px; }
     .region-bar { flex: 1; height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; }
-    .region-bar.filled-east { background: var(--red); }
-    .region-bar.filled-west { background: var(--blue); }
-    .region-bar.filled-south { background: var(--gold); }
-    .region-bar.filled-midwest { background: var(--green); }
-    .war-room-teams { display: flex; flex-wrap: wrap; gap: 3px; max-height: 100px; overflow-y: auto; }
-    .war-room-team { display: flex; align-items: center; gap: 4px; padding: 3px 6px; border-radius: 4px; font-size: 9px; }
-    .war-room-seed { width: 14px; height: 14px; border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: 8px; font-weight: 700; }
+    .war-room-teams { display: flex; flex-wrap: wrap; gap: 3px; max-height: 60px; overflow-y: auto; }
+    .war-room-team { display: flex; align-items: center; gap: 3px; padding: 2px 5px; border-radius: 3px; font-size: 8px; cursor: pointer; }
+    .war-room-seed { width: 12px; height: 12px; border-radius: 2px; display: flex; align-items: center; justify-content: center; font-size: 7px; font-weight: 700; }
     
-    /* Best Available */
-    .best-available { background: rgba(0,0,0,0.3); border-radius: 10px; padding: 12px; }
-    .best-available-title { font-size: 11px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
-    .best-available-list { display: flex; flex-direction: column; gap: 4px; max-height: 400px; overflow-y: auto; }
+    .best-available { background: rgba(0,0,0,0.3); border-radius: 10px; padding: 12px; margin-bottom: 12px; }
+    .best-available-title { font-size: 11px; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+    .best-available-list { display: flex; flex-direction: column; gap: 4px; max-height: 280px; overflow-y: auto; }
     .best-team-btn { display: flex; align-items: center; gap: 6px; padding: 8px 10px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; cursor: pointer; text-align: left; transition: all 0.2s; color: #fff; }
     .best-team-btn:hover { transform: translateX(4px); border-color: var(--gold); }
-    .best-team-btn.drafted { opacity: 0.3; pointer-events: none; }
     .best-team-seed { width: 22px; height: 22px; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; }
     .best-team-info { flex: 1; min-width: 0; }
     .best-team-name { font-size: 11px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .best-team-region { font-size: 9px; color: rgba(255,255,255,0.5); }
-    .best-team-odds { font-size: 10px; color: var(--green); }
+    .best-team-stats { font-size: 9px; color: rgba(255,255,255,0.5); }
+    .best-team-odds { font-size: 10px; color: var(--green); font-weight: 600; }
     
-    /* Draft Inactive State */
+    .all-teams-section { margin-top: 16px; }
+    .all-teams-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; flex-wrap: wrap; gap: 8px; }
+    .all-teams-title { font-size: 11px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px; }
+    .region-filters { display: flex; gap: 6px; flex-wrap: wrap; }
+    .region-filter { padding: 4px 10px; background: rgba(255,255,255,0.1); border: none; border-radius: 4px; font-size: 10px; color: #fff; cursor: pointer; transition: all 0.2s; }
+    .region-filter.active { background: var(--gold); color: #000; font-weight: 600; }
+    .all-teams-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 6px; max-height: 240px; overflow-y: auto; padding: 4px; }
+    .all-team-btn { display: flex; align-items: center; gap: 6px; padding: 8px 10px; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; cursor: pointer; text-align: left; transition: all 0.2s; color: #fff; }
+    .all-team-btn:hover { transform: translateY(-2px); }
+    .all-team-btn.drafted { opacity: 0.3; pointer-events: none; }
+    .all-team-seed { width: 24px; height: 24px; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; }
+    .all-team-info { flex: 1; min-width: 0; }
+    .all-team-name { font-size: 11px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .all-team-stats { font-size: 9px; color: rgba(255,255,255,0.5); }
+    .all-team-odds { font-size: 9px; color: var(--green); }
+    
     .draft-inactive { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 40px 20px; text-align: center; }
     .draft-inactive-icon { font-size: 48px; margin-bottom: 12px; }
     .draft-inactive-title { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
     .draft-inactive-desc { font-size: 13px; color: rgba(255,255,255,0.5); }
     
-    /* Pick Overlay */
+    .scouting-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.85); z-index: 900; align-items: center; justify-content: center; padding: 20px; }
+    .scouting-overlay.active { display: flex; }
+    .scouting-report { background: var(--navy-light); border-radius: 16px; width: 100%; max-width: 360px; overflow: hidden; border: 1px solid rgba(255,255,255,0.2); }
+    .scouting-header { padding: 20px; position: relative; }
+    .scouting-close { position: absolute; top: 12px; right: 12px; width: 32px; height: 32px; background: rgba(255,255,255,0.2); border: none; border-radius: 8px; color: #fff; font-size: 18px; cursor: pointer; }
+    .scouting-team { display: flex; align-items: center; gap: 12px; }
+    .scouting-logo { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 800; }
+    .scouting-name { font-size: 24px; font-weight: 800; }
+    .scouting-meta { font-size: 12px; opacity: 0.8; }
+    .scouting-body { padding: 16px; }
+    .scouting-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 16px; }
+    .scouting-stat { background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; text-align: center; }
+    .scouting-stat-label { font-size: 9px; color: rgba(255,255,255,0.5); margin-bottom: 4px; text-transform: uppercase; }
+    .scouting-stat-value { font-size: 18px; font-weight: 700; }
+    .quadrant-title { font-size: 10px; color: rgba(255,255,255,0.5); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+    .quadrant-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 16px; }
+    .quadrant-item { padding: 8px; border-radius: 6px; text-align: center; }
+    .quadrant-label { font-size: 9px; margin-bottom: 2px; }
+    .quadrant-value { font-size: 14px; font-weight: 700; color: #fff; }
+    .draft-confirm-btn { width: 100%; padding: 14px; background: linear-gradient(135deg, var(--green), #00a080); border: none; border-radius: 10px; font-size: 14px; font-weight: 700; color: #000; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .draft-confirm-btn:hover { transform: translateY(-2px); }
+    .draft-confirm-avatar { width: 24px; height: 24px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: #fff; }
+    
     .pick-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.9); z-index: 1000; align-items: center; justify-content: center; }
     .pick-overlay.active { display: flex; }
     .pick-card { transform: scale(0); opacity: 0; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
     .pick-card.show { transform: scale(1); opacity: 1; }
     
-    /* Confetti */
     .confetti-container { position: fixed; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; overflow: hidden; z-index: 999; }
-    .confetti-piece { position: absolute; width: 10px; height: 10px; top: -20px; }
     @keyframes confettiFall { 0% { top: -20px; opacity: 1; } 100% { top: 100vh; opacity: 0; } }
     
-    /* Popup */
     .popup-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
     .popup-overlay.active { display: flex; }
     .team-popup { background: var(--navy-light); border-radius: 16px; width: 100%; max-width: 400px; overflow: hidden; border: 1px solid rgba(255,255,255,0.2); max-height: 90vh; overflow-y: auto; }
@@ -243,10 +262,10 @@
     .odds-label { font-size: 10px; color: rgba(255,255,255,0.5); margin-bottom: 4px; }
     .odds-value { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--green); }
     .odds-value.negative { color: var(--gold); }
-    .quadrant-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
-    .quadrant-item { background: rgba(255,255,255,0.05); padding: 8px; border-radius: 6px; text-align: center; }
-    .quadrant-label { font-size: 10px; color: rgba(255,255,255,0.5); margin-bottom: 2px; }
-    .quadrant-value { font-weight: 700; font-size: 14px; }
+    .popup-quadrant-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    .popup-quadrant-item { background: rgba(255,255,255,0.05); padding: 8px; border-radius: 6px; text-align: center; }
+    .popup-quadrant-label { font-size: 10px; color: rgba(255,255,255,0.5); margin-bottom: 2px; }
+    .popup-quadrant-value { font-weight: 700; font-size: 14px; }
     .popup-owner { display: flex; align-items: center; gap: 10px; padding: 16px 20px; background: rgba(255,255,255,0.05); }
     .popup-owner-avatar { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; }
     .popup-owner-label { font-size: 12px; color: rgba(255,255,255,0.5); }
@@ -347,6 +366,7 @@
   <button class="refresh-btn" onclick="loadData()">↻</button>
   
   <div class="popup-overlay" id="popupOverlay"><div class="team-popup" id="teamPopup"></div></div>
+  <div class="scouting-overlay" id="scoutingOverlay"><div class="scouting-report" id="scoutingReport"></div></div>
   <div class="pick-overlay" id="pickOverlay"><div class="pick-card" id="pickCard"></div></div>
   <div class="confetti-container" id="confettiContainer"></div>
   <div class="toast" id="toast"></div>
@@ -355,8 +375,9 @@
     let appData = null, teamsData = null, oddsData = null, liveScores = {};
     let draftTimer = null, draftTimeLeft = 120;
     let currentRegion = 'East';
+    let currentRegionFilter = 'all';
+    let selectedTeamForDraft = null;
     
-    // Tab navigation
     document.querySelectorAll('.tab').forEach(tab => {
       tab.addEventListener('click', () => {
         document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
@@ -384,13 +405,11 @@
         teamsData = await teamsRes.json();
         oddsData = await oddsRes.json();
         const standings = await standingsRes.json();
-        
         renderRace(standings);
         renderStandings(standings);
         renderBracket();
         renderDraft();
         loadLiveGames();
-        
         document.getElementById('lastUpdate').textContent = 'Last updated: ' + new Date(appData.lastUpdate).toLocaleString();
       } catch (err) { console.error('Failed to load:', err); }
     }
@@ -401,21 +420,11 @@
       document.getElementById('raceLanes').innerHTML = standings.map(s => {
         const progressPct = (s.totalPoints / maxPossible) * 100;
         const potentialPct = (s.potentialPoints / maxPossible) * 100;
-        return `<div class="race-lane">
-          <div class="race-avatar" style="background:linear-gradient(135deg,${s.colorPrimary},${s.colorSecondary})">${s.letter}</div>
-          <div class="race-track">
-            <div class="race-progress" style="width:${Math.max(progressPct,8)}%;background:linear-gradient(90deg,${s.colorPrimary},${s.colorSecondary})">${s.totalPoints}</div>
-            <div class="race-potential" style="left:${progressPct}%;width:${potentialPct}%"></div>
-          </div>
-          <div class="race-info">${s.teamsAlive} alive</div>
-        </div>`;
+        return `<div class="race-lane"><div class="race-avatar" style="background:linear-gradient(135deg,${s.colorPrimary},${s.colorSecondary})">${s.letter}</div><div class="race-track"><div class="race-progress" style="width:${Math.max(progressPct,8)}%;background:linear-gradient(90deg,${s.colorPrimary},${s.colorSecondary})">${s.totalPoints}</div><div class="race-potential" style="left:${progressPct}%;width:${potentialPct}%"></div></div><div class="race-info">${s.teamsAlive} alive</div></div>`;
       }).join('');
       const gap = leader.totalPoints - (standings[1]?.totalPoints || 0);
       const maxP = standings.reduce((a,b) => a.maxPoints > b.maxPoints ? a : b);
-      document.getElementById('racePills').innerHTML = `
-        <div class="race-pill"><strong>${leader.name}</strong> leads by ${gap} pts</div>
-        <div class="race-pill">Max potential: <strong>${maxP.name}</strong> (${maxP.maxPoints})</div>
-        <div class="race-pill">${standings.reduce((sum,s) => sum + s.teamsAlive, 0)} teams alive</div>`;
+      document.getElementById('racePills').innerHTML = `<div class="race-pill"><strong>${leader.name}</strong> leads by ${gap} pts</div><div class="race-pill">Max potential: <strong>${maxP.name}</strong> (${maxP.maxPoints})</div><div class="race-pill">${standings.reduce((sum,s) => sum + s.teamsAlive, 0)} teams alive</div>`;
     }
     
     function renderStandings(standings) {
@@ -427,12 +436,7 @@
           for (const r of Object.keys(appData.bracket)) { const x = appData.bracket[r].find(y => y.name === t); if (x?.eliminated) elim = true; }
           return `<span class="team-chip ${elim?'eliminated':''}" style="background:linear-gradient(135deg,${team.colors[0]},${team.colors[0]}dd)" onclick="showTeamPopup('${t}')">${t}</span>`;
         }).join('');
-        return `<div class="standing-card">
-          <div class="standing-rank">${rank}</div>
-          <div class="standing-avatar" style="background:linear-gradient(135deg,${s.colorPrimary},${s.colorSecondary})">${s.letter}</div>
-          <div class="standing-info"><div class="standing-name">${s.name}</div><div class="standing-teams">${chips}</div></div>
-          <div class="standing-points"><div class="points-current">${s.totalPoints}</div><div class="points-potential">+${s.potentialPoints} potential</div></div>
-        </div>`;
+        return `<div class="standing-card"><div class="standing-rank">${rank}</div><div class="standing-avatar" style="background:linear-gradient(135deg,${s.colorPrimary},${s.colorSecondary})">${s.letter}</div><div class="standing-info"><div class="standing-name">${s.name}</div><div class="standing-teams">${chips}</div></div><div class="standing-points"><div class="points-current">${s.totalPoints}</div><div class="points-potential">+${s.potentialPoints} potential</div></div></div>`;
       }).join('');
     }
     
@@ -442,30 +446,12 @@
       if (currentRegion === 'FinalFour') { renderFinalFour(); return; }
       const teams = appData.bracket[currentRegion] || [];
       const matchupOrder = getMatchupOrder();
-      const r1Matchups = matchupOrder.map(([s1, s2]) => {
-        const t1 = teams.find(t => t.seed === s1);
-        const t2 = teams.find(t => t.seed === s2);
-        return [t1, t2];
-      });
-      document.getElementById('bracketContent').innerHTML = `
-        <div class="round-headers"><div class="round-header">R64</div><div class="round-header">R32</div><div class="round-header">S16</div><div class="round-header">E8</div></div>
-        <div class="bracket-grid">
-          <div class="bracket-column r1">${r1Matchups.map(([t1, t2]) => renderMatchup(t1, t2)).join('')}</div>
-          <div class="bracket-column r2">${[0,1,2,3].map(() => '<div class="matchup-empty">TBD</div>').join('')}</div>
-          <div class="bracket-column r3">${[0,1].map(() => '<div class="matchup-empty">TBD</div>').join('')}</div>
-          <div class="bracket-column r4"><div class="matchup-empty">→ Final Four</div></div>
-        </div>`;
+      const r1Matchups = matchupOrder.map(([s1, s2]) => [teams.find(t => t.seed === s1), teams.find(t => t.seed === s2)]);
+      document.getElementById('bracketContent').innerHTML = `<div class="round-headers"><div class="round-header">R64</div><div class="round-header">R32</div><div class="round-header">S16</div><div class="round-header">E8</div></div><div class="bracket-grid"><div class="bracket-column r1">${r1Matchups.map(([t1, t2]) => renderMatchup(t1, t2)).join('')}</div><div class="bracket-column r2">${[0,1,2,3].map(() => '<div class="matchup-empty">TBD</div>').join('')}</div><div class="bracket-column r3">${[0,1].map(() => '<div class="matchup-empty">TBD</div>').join('')}</div><div class="bracket-column r4"><div class="matchup-empty">→ Final Four</div></div></div>`;
     }
     
     function renderFinalFour() {
-      document.getElementById('bracketContent').innerHTML = `
-        <div class="final-four-bracket">
-          <div class="ff-semifinal-row">
-            <div class="ff-matchup"><div class="ff-matchup-label">Semifinal 1</div><div class="ff-team"><span class="seed-badge" style="background:var(--red);color:#fff">E</span><span class="team-name">East Champion</span></div><div class="ff-vs">VS</div><div class="ff-team"><span class="seed-badge" style="background:var(--blue);color:#fff">W</span><span class="team-name">West Champion</span></div></div>
-            <div class="ff-matchup"><div class="ff-matchup-label">Semifinal 2</div><div class="ff-team"><span class="seed-badge" style="background:var(--gold);color:#000">S</span><span class="team-name">South Champion</span></div><div class="ff-vs">VS</div><div class="ff-team"><span class="seed-badge" style="background:var(--green);color:#000">M</span><span class="team-name">Midwest Champion</span></div></div>
-          </div>
-          <div class="championship-matchup"><div class="championship-trophy">🏆</div><div class="championship-label">NATIONAL CHAMPIONSHIP</div><div class="championship-teams"><div class="ff-team"><span class="team-name">Winner Semifinal 1</span></div><div class="ff-vs">VS</div><div class="ff-team"><span class="team-name">Winner Semifinal 2</span></div></div></div>
-        </div>`;
+      document.getElementById('bracketContent').innerHTML = `<div class="final-four-bracket"><div class="ff-semifinal-row"><div class="ff-matchup"><div class="ff-matchup-label">Semifinal 1</div><div class="ff-team"><span class="seed-badge" style="background:var(--red);color:#fff">E</span><span class="team-name">East Champion</span></div><div class="ff-vs">VS</div><div class="ff-team"><span class="seed-badge" style="background:var(--blue);color:#fff">W</span><span class="team-name">West Champion</span></div></div><div class="ff-matchup"><div class="ff-matchup-label">Semifinal 2</div><div class="ff-team"><span class="seed-badge" style="background:var(--gold);color:#000">S</span><span class="team-name">South Champion</span></div><div class="ff-vs">VS</div><div class="ff-team"><span class="seed-badge" style="background:var(--green);color:#000">M</span><span class="team-name">Midwest Champion</span></div></div></div><div class="championship-matchup"><div class="championship-trophy">🏆</div><div class="championship-label">NATIONAL CHAMPIONSHIP</div><div class="championship-teams"><div class="ff-team"><span class="team-name">Winner Semifinal 1</span></div><div class="ff-vs">VS</div><div class="ff-team"><span class="team-name">Winner Semifinal 2</span></div></div></div></div>`;
     }
     
     function renderMatchup(t1, t2) {
@@ -479,12 +465,7 @@
       let owner = null;
       appData.players.forEach(p => { if (p.teams.includes(t.name)) owner = p; });
       const score = live?.scores?.[t.name];
-      return `<div class="matchup-team ${t.eliminated ? 'eliminated' : ''} ${t.wins > 0 && !t.eliminated ? 'winner' : ''}" onclick="showTeamPopup('${t.name}')">
-        <span class="seed-badge" style="background:${info.colors?.[0] || '#333'};color:${info.colors?.[1] || '#fff'}">${info.seed || '?'}</span>
-        <span class="team-name">${t.name}</span>
-        ${owner ? `<span class="team-owner" style="background:linear-gradient(135deg,${owner.colorPrimary},${owner.colorSecondary})">${owner.letter}</span>` : ''}
-        ${score !== undefined ? `<span class="team-score">${score}</span>` : ''}
-      </div>`;
+      return `<div class="matchup-team ${t.eliminated ? 'eliminated' : ''} ${t.wins > 0 && !t.eliminated ? 'winner' : ''}" onclick="showTeamPopup('${t.name}')"><span class="seed-badge" style="background:${info.colors?.[0] || '#333'};color:${info.colors?.[1] || '#fff'}">${info.seed || '?'}</span><span class="team-name">${t.name}</span>${owner ? `<span class="team-owner" style="background:linear-gradient(135deg,${owner.colorPrimary},${owner.colorSecondary})">${owner.letter}</span>` : ''}${score !== undefined ? `<span class="team-score">${score}</span>` : ''}</div>`;
     }
     
     async function loadLiveGames() {
@@ -517,7 +498,7 @@
       } catch (err) { document.getElementById('liveGames').innerHTML = `<div class="no-games"><div class="no-games-icon">📡</div><div>Unable to load live scores</div></div>`; }
     }
     
-    // ===== DRAFT FUNCTIONS =====
+    // ===== DRAFT =====
     function getSnakePickerIndex(pickNum) {
       const state = appData.draftState;
       const order = state.order.length > 0 ? state.order : [0, 1, 2, 3];
@@ -526,27 +507,19 @@
       const orderIdx = round % 2 === 0 ? pos : 3 - pos;
       return order[orderIdx];
     }
-    
-    function getCurrentPickerIndex() {
-      return getSnakePickerIndex(appData.draftState.currentPick);
-    }
-    
+    function getCurrentPickerIndex() { return getSnakePickerIndex(appData.draftState.currentPick); }
     function getUpNext(count = 3) {
       const next = [];
       for (let i = 1; i <= count; i++) {
-        if (appData.draftState.currentPick + i < 64) {
-          next.push(appData.players[getSnakePickerIndex(appData.draftState.currentPick + i)]);
-        }
+        if (appData.draftState.currentPick + i < 64) next.push(appData.players[getSnakePickerIndex(appData.draftState.currentPick + i)]);
       }
       return next;
     }
-    
     function calculateGrade(player) {
       if (player.teams.length === 0) return '?';
-      const avgSeed = player.teams.reduce((sum, t) => {
-        const info = teamsData[t];
-        return sum + (info?.seed || 10);
-      }, 0) / player.teams.length;
+      let totalSeed = 0;
+      player.teams.forEach(t => { const info = teamsData[t]; if (info) totalSeed += info.seed; });
+      const avgSeed = totalSeed / player.teams.length;
       if (avgSeed <= 2.5) return 'A+';
       if (avgSeed <= 4) return 'A';
       if (avgSeed <= 5.5) return 'B+';
@@ -554,26 +527,22 @@
       if (avgSeed <= 9) return 'C';
       return 'D';
     }
-    
     function getGradeClass(grade) {
       if (grade.startsWith('A')) return 'grade-a';
       if (grade.startsWith('B')) return 'grade-b';
       if (grade.startsWith('C')) return 'grade-c';
       return 'grade-d';
     }
-    
+    function parseOdds(odds) { return parseInt((odds || '+100000').replace('+', '')); }
     function getDraftedTeams() {
       const drafted = new Set();
       appData.draftState.picks?.forEach(p => drafted.add(p.team));
       appData.players.forEach(p => p.teams.forEach(t => drafted.add(t)));
       return drafted;
     }
-    
     function getAvailableTeams() {
       const drafted = getDraftedTeams();
-      return Object.entries(teamsData)
-        .filter(([name]) => !drafted.has(name))
-        .sort((a, b) => a[1].seed - b[1].seed);
+      return Object.entries(teamsData).filter(([name]) => !drafted.has(name)).sort((a, b) => a[1].seed - b[1].seed);
     }
     
     function renderDraft() {
@@ -582,7 +551,6 @@
       const testBtn = document.getElementById('testBtn');
       const resetBtn = document.getElementById('resetBtn');
       const endBtn = document.getElementById('endBtn');
-      
       if (state.active) {
         startBtn.style.display = 'none';
         testBtn.style.display = 'none';
@@ -601,20 +569,9 @@
     
     function renderInactiveDraft(hasPicks) {
       if (hasPicks) {
-        document.getElementById('draftContent').innerHTML = `
-          <div class="draft-inactive">
-            <div class="draft-inactive-icon">✅</div>
-            <div class="draft-inactive-title">Draft Complete!</div>
-            <div class="draft-inactive-desc">${appData.draftState.picks?.length || 0} picks made</div>
-          </div>
-          <div class="war-room" style="margin-top:16px">${renderWarRoom()}</div>`;
+        document.getElementById('draftContent').innerHTML = `<div class="draft-inactive"><div class="draft-inactive-icon">✅</div><div class="draft-inactive-title">Draft Complete!</div><div class="draft-inactive-desc">${appData.draftState.picks?.length || 0} picks made</div></div><div class="war-room" style="margin-top:16px">${renderWarRoom()}</div>`;
       } else {
-        document.getElementById('draftContent').innerHTML = `
-          <div class="draft-inactive">
-            <div class="draft-inactive-icon">🏀</div>
-            <div class="draft-inactive-title">Ready to Draft</div>
-            <div class="draft-inactive-desc">Click "Start Draft" to begin or "Test Draft" to practice</div>
-          </div>`;
+        document.getElementById('draftContent').innerHTML = `<div class="draft-inactive"><div class="draft-inactive-icon">🏀</div><div class="draft-inactive-title">Ready to Draft</div><div class="draft-inactive-desc">Click "Start Draft" to begin or "Test Draft" to practice</div></div>`;
       }
     }
     
@@ -623,38 +580,36 @@
       const picker = appData.players[getCurrentPickerIndex()];
       const upNext = getUpNext();
       const timerClass = draftTimeLeft <= 10 ? 'critical' : draftTimeLeft <= 30 ? 'warning' : '';
-      const clockClass = draftTimeLeft <= 10 ? 'critical' : draftTimeLeft <= 30 ? 'warning' : '';
-      
       document.getElementById('draftContent').innerHTML = `
         ${state.testMode ? '<div style="background:rgba(245,158,11,0.2);border:1px solid rgba(245,158,11,0.4);border-radius:8px;padding:10px;text-align:center;margin-bottom:12px;font-size:12px;color:#f59e0b;font-weight:600">🧪 TEST MODE - Picks won\'t be saved</div>' : ''}
-        <div class="on-the-clock ${clockClass}">
+        <div class="on-the-clock ${timerClass}">
           <div class="clock-label">On The Clock</div>
-          <div class="clock-drafter">
-            <div class="clock-avatar" style="background:linear-gradient(135deg,${picker.colorPrimary},${picker.colorSecondary});box-shadow:0 0 20px ${picker.colorPrimary}66">${picker.letter}</div>
-            <div>
-              <div class="clock-name">${picker.name}</div>
-              <div class="clock-pick">Pick #${state.currentPick + 1} of 64 • Round ${Math.floor(state.currentPick / 4) + 1}</div>
-            </div>
-          </div>
+          <div class="clock-drafter"><div class="clock-avatar" style="background:linear-gradient(135deg,${picker.colorPrimary},${picker.colorSecondary});box-shadow:0 0 20px ${picker.colorPrimary}66">${picker.letter}</div><div><div class="clock-name">${picker.name}</div><div class="clock-pick">Pick #${state.currentPick + 1} of 64 • Round ${Math.floor(state.currentPick / 4) + 1}</div></div></div>
           <div class="clock-timer ${timerClass}" id="timerDisplay">${formatTime(draftTimeLeft)}</div>
           ${draftTimeLeft <= 10 ? `<div class="auto-pick-warning">Auto-picking in ${draftTimeLeft}...</div>` : ''}
-          <div class="up-next">
-            <span class="up-next-label">Up Next:</span>
-            <div class="up-next-avatars">${upNext.map(p => `<div class="up-next-avatar" style="background:linear-gradient(135deg,${p.colorPrimary},${p.colorSecondary})">${p.letter}</div>`).join('')}</div>
-          </div>
+          <div class="up-next"><span class="up-next-label">Up Next:</span><div class="up-next-avatars">${upNext.map(p => `<div class="up-next-avatar" style="background:linear-gradient(135deg,${p.colorPrimary},${p.colorSecondary})">${p.letter}</div>`).join('')}</div></div>
         </div>
         <div class="draft-layout">
           <div class="draft-main">
             <div class="war-room">${renderWarRoom()}</div>
-          </div>
-          <div class="draft-sidebar">
-            <div class="best-available">
-              <div class="best-available-title">Best Available</div>
-              <div class="best-available-list">${renderBestAvailable()}</div>
+            <div class="all-teams-section">
+              <div class="all-teams-header">
+                <div class="all-teams-title">All Teams</div>
+                <div class="region-filters">
+                  <button class="region-filter ${currentRegionFilter === 'all' ? 'active' : ''}" onclick="filterDraftRegion('all')">All</button>
+                  <button class="region-filter ${currentRegionFilter === 'East' ? 'active' : ''}" onclick="filterDraftRegion('East')">East</button>
+                  <button class="region-filter ${currentRegionFilter === 'West' ? 'active' : ''}" onclick="filterDraftRegion('West')">West</button>
+                  <button class="region-filter ${currentRegionFilter === 'South' ? 'active' : ''}" onclick="filterDraftRegion('South')">South</button>
+                  <button class="region-filter ${currentRegionFilter === 'Midwest' ? 'active' : ''}" onclick="filterDraftRegion('Midwest')">Midwest</button>
+                </div>
+              </div>
+              <div class="all-teams-grid" id="allTeamsGrid">${renderAllTeamsGrid()}</div>
             </div>
           </div>
+          <div class="draft-sidebar">
+            <div class="best-available"><div class="best-available-title">⭐ Best Available</div><div class="best-available-list">${renderBestAvailable()}</div></div>
+          </div>
         </div>`;
-      
       if (!draftTimer) startTimer();
     }
     
@@ -663,50 +618,83 @@
       return appData.players.map((p, idx) => {
         const grade = calculateGrade(p);
         const regions = { East: 0, West: 0, South: 0, Midwest: 0 };
-        p.teams.forEach(t => { const info = teamsData[t]; if (info) regions[info.region]++; });
-        
-        const teamsHtml = p.teams.map(t => {
-          const info = teamsData[t];
-          if (!info) return '';
-          return `<div class="war-room-team" style="background:${info.colors[0]}33;border:1px solid ${info.colors[0]}66" onclick="showTeamPopup('${t}')">
-            <span class="war-room-seed" style="background:${info.colors[0]};color:${info.colors[1]}">${info.seed}</span>
-            <span>${t}</span>
-          </div>`;
+        let totalOdds = 0, totalSeed = 0;
+        p.teams.forEach(t => { const info = teamsData[t]; if (info) { regions[info.region]++; totalOdds += parseOdds(oddsData.championship[t]); totalSeed += info.seed; } });
+        const avgSeed = p.teams.length > 0 ? (totalSeed / p.teams.length).toFixed(1) : '-';
+        const teamsHtml = p.teams.slice(-4).map(t => {
+          const info = teamsData[t]; if (!info) return '';
+          return `<div class="war-room-team" style="background:${info.colors[0]}33;border:1px solid ${info.colors[0]}55" onclick="showTeamPopup('${t}')"><span class="war-room-seed" style="background:${info.colors[0]};color:${info.colors[1]}">${info.seed}</span><span style="color:#fff">${t.substring(0,8)}</span></div>`;
         }).join('');
-        
         return `<div class="war-room-player ${idx === currentIdx ? 'active' : ''}">
-          <div class="war-room-header">
-            <div class="war-room-avatar" style="background:linear-gradient(135deg,${p.colorPrimary},${p.colorSecondary})">${p.letter}</div>
-            <div class="war-room-info">
-              <div class="war-room-name">${p.name}</div>
-              <div class="war-room-count">${p.teams.length} teams</div>
-            </div>
-            <div class="war-room-grade ${getGradeClass(grade)}">${grade}</div>
-          </div>
-          <div class="region-bars">
-            <div class="region-bar ${regions.East > 0 ? 'filled-east' : ''}" title="East: ${regions.East}"></div>
-            <div class="region-bar ${regions.West > 0 ? 'filled-west' : ''}" title="West: ${regions.West}"></div>
-            <div class="region-bar ${regions.South > 0 ? 'filled-south' : ''}" title="South: ${regions.South}"></div>
-            <div class="region-bar ${regions.Midwest > 0 ? 'filled-midwest' : ''}" title="Midwest: ${regions.Midwest}"></div>
-          </div>
-          <div class="war-room-teams">${teamsHtml || '<div style="font-size:10px;color:rgba(255,255,255,0.3);padding:4px">No teams yet</div>'}</div>
+          <div class="war-room-header"><div class="war-room-avatar" style="background:linear-gradient(135deg,${p.colorPrimary},${p.colorSecondary})">${p.letter}</div><div class="war-room-info"><div class="war-room-name">${p.name}</div><div class="war-room-count">${p.teams.length} teams</div></div><div class="war-room-grade ${getGradeClass(grade)}">${grade}</div></div>
+          <div class="war-room-stats"><div class="war-room-stat"><span style="color:rgba(255,255,255,0.5)">Avg:</span> <span style="color:var(--gold);font-weight:600">${avgSeed}</span></div><div class="war-room-stat"><span style="color:rgba(255,255,255,0.5)">Σ:</span> <span style="color:var(--green);font-weight:600">+${totalOdds.toLocaleString()}</span></div></div>
+          <div class="region-bars">${['East','West','South','Midwest'].map((r,i) => `<div class="region-bar" style="background:${regions[r] > 0 ? ['#bf0a30','#002868','#ffd700','#00d4aa'][i] : 'rgba(255,255,255,0.1)'}"></div>`).join('')}</div>
+          <div class="war-room-teams">${teamsHtml || '<div style="font-size:9px;color:rgba(255,255,255,0.3)">No teams</div>'}</div>
         </div>`;
       }).join('');
     }
     
     function renderBestAvailable() {
-      const available = getAvailableTeams().slice(0, 12);
+      const available = getAvailableTeams().slice(0, 10);
       return available.map(([name, info]) => {
         const odds = oddsData.championship[name] || '';
-        return `<button class="best-team-btn" onclick="makePick('${name}')">
-          <span class="best-team-seed" style="background:${info.colors[0]};color:${info.colors[1]}">${info.seed}</span>
-          <div class="best-team-info">
-            <div class="best-team-name">${name}</div>
-            <div class="best-team-region">${info.region}</div>
-          </div>
-          ${odds ? `<span class="best-team-odds">${odds}</span>` : ''}
-        </button>`;
+        return `<button class="best-team-btn" onclick="showScoutingReport('${name}')" style="background:linear-gradient(135deg,${info.colors[0]}22,${info.colors[0]}11);border-color:${info.colors[0]}55"><span class="best-team-seed" style="background:${info.colors[0]};color:${info.colors[1]}">${info.seed}</span><div class="best-team-info"><div class="best-team-name">${name}</div><div class="best-team-stats">${info.record} • NET #${info.net}</div></div>${odds ? `<span class="best-team-odds">${odds}</span>` : ''}</button>`;
       }).join('');
+    }
+    
+    function renderAllTeamsGrid() {
+      const available = getAvailableTeams();
+      const filtered = currentRegionFilter === 'all' ? available : available.filter(([_, info]) => info.region === currentRegionFilter);
+      return filtered.map(([name, info]) => {
+        const odds = oddsData.championship[name] || '';
+        return `<button class="all-team-btn" onclick="showScoutingReport('${name}')" style="background:linear-gradient(135deg,${info.colors[0]}22,${info.colors[0]}11);border-color:${info.colors[0]}55"><span class="all-team-seed" style="background:${info.colors[0]};color:${info.colors[1]}">${info.seed}</span><div class="all-team-info"><div class="all-team-name">${name}</div><div class="all-team-stats">${info.record} • #${info.net}</div></div>${odds ? `<span class="all-team-odds">${odds}</span>` : ''}</button>`;
+      }).join('');
+    }
+    
+    function filterDraftRegion(region) {
+      currentRegionFilter = region;
+      document.querySelectorAll('.region-filter').forEach(btn => btn.classList.remove('active'));
+      document.querySelector(`.region-filter[onclick="filterDraftRegion('${region}')"]`)?.classList.add('active');
+      document.getElementById('allTeamsGrid').innerHTML = renderAllTeamsGrid();
+    }
+    
+    function showScoutingReport(teamName) {
+      const team = teamsData[teamName]; if (!team) return;
+      selectedTeamForDraft = teamName;
+      const player = appData.players[getCurrentPickerIndex()];
+      const odds = oddsData.championship[teamName] || '-';
+      document.getElementById('scoutingReport').innerHTML = `
+        <div class="scouting-header" style="background:linear-gradient(135deg,${team.colors[0]},${team.colors[0]}cc)">
+          <button class="scouting-close" onclick="closeScoutingReport()">✕</button>
+          <div class="scouting-team"><div class="scouting-logo" style="background:${team.colors[1]};color:${team.colors[0]}">${teamName.charAt(0)}</div><div><div class="scouting-name" style="color:${team.colors[1]}">${teamName}</div><div class="scouting-meta" style="color:${team.colors[1]}cc">#${team.seed} Seed • ${team.region} Region</div></div></div>
+        </div>
+        <div class="scouting-body">
+          <div class="scouting-stats">
+            <div class="scouting-stat"><div class="scouting-stat-label">Record</div><div class="scouting-stat-value" style="color:#fff">${team.record}</div></div>
+            <div class="scouting-stat"><div class="scouting-stat-label">NET Rank</div><div class="scouting-stat-value" style="color:var(--gold)">#${team.net}</div></div>
+            <div class="scouting-stat"><div class="scouting-stat-label">Title Odds</div><div class="scouting-stat-value" style="color:var(--green)">${odds}</div></div>
+          </div>
+          <div class="quadrant-title">Quadrant Record</div>
+          <div class="quadrant-grid">
+            <div class="quadrant-item" style="background:rgba(0,212,170,0.1);border:1px solid rgba(0,212,170,0.3)"><div class="quadrant-label" style="color:#00d4aa">Q1</div><div class="quadrant-value">${team.q1}</div></div>
+            <div class="quadrant-item" style="background:rgba(255,215,0,0.1);border:1px solid rgba(255,215,0,0.3)"><div class="quadrant-label" style="color:#ffd700">Q2</div><div class="quadrant-value">${team.q2}</div></div>
+            <div class="quadrant-item" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1)"><div class="quadrant-label" style="color:rgba(255,255,255,0.5)">Q3</div><div class="quadrant-value">${team.q3}</div></div>
+            <div class="quadrant-item" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1)"><div class="quadrant-label" style="color:rgba(255,255,255,0.5)">Q4</div><div class="quadrant-value">${team.q4}</div></div>
+          </div>
+          <button class="draft-confirm-btn" onclick="confirmDraftPick()"><span>Draft to</span><span class="draft-confirm-avatar" style="background:linear-gradient(135deg,${player.colorPrimary},${player.colorSecondary})">${player.letter}</span><span>${player.name}</span></button>
+        </div>`;
+      document.getElementById('scoutingOverlay').classList.add('active');
+    }
+    
+    function closeScoutingReport() {
+      document.getElementById('scoutingOverlay').classList.remove('active');
+      selectedTeamForDraft = null;
+    }
+    
+    function confirmDraftPick() {
+      if (!selectedTeamForDraft) return;
+      closeScoutingReport();
+      makePick(selectedTeamForDraft);
     }
     
     function formatTime(seconds) {
@@ -725,32 +713,20 @@
           display.textContent = formatTime(draftTimeLeft);
           display.className = 'clock-timer' + (draftTimeLeft <= 10 ? ' critical' : draftTimeLeft <= 30 ? ' warning' : '');
         }
-        if (draftTimeLeft <= 0) {
-          stopTimer();
-          autoPick();
-        } else if (draftTimeLeft <= 10 || draftTimeLeft === 30) {
-          renderDraft();
-        }
+        if (draftTimeLeft <= 0) { stopTimer(); autoPick(); }
+        else if (draftTimeLeft <= 10 || draftTimeLeft === 30) renderDraft();
       }, 1000);
     }
     
-    function stopTimer() {
-      if (draftTimer) { clearInterval(draftTimer); draftTimer = null; }
-    }
+    function stopTimer() { if (draftTimer) { clearInterval(draftTimer); draftTimer = null; } }
     
     async function autoPick() {
       const available = getAvailableTeams();
-      if (available.length > 0) {
-        await makePick(available[0][0]);
-      }
+      if (available.length > 0) await makePick(available[0][0]);
     }
     
     async function startDraft(testMode) {
-      await fetch('/api/draft/start', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ order: [0, 1, 2, 3], timerSeconds: 120, testMode })
-      });
+      await fetch('/api/draft/start', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ order: [0, 1, 2, 3], timerSeconds: 120, testMode }) });
       await loadData();
       showToast(testMode ? '🧪 Test draft started!' : '🚀 Draft started!');
     }
@@ -759,68 +735,27 @@
       const playerIndex = getCurrentPickerIndex();
       const team = teamsData[teamName];
       const player = appData.players[playerIndex];
-      
-      // Show pick animation
       showPickAnimation(teamName, team, player);
-      
-      // Confetti for 1-seeds
-      if (team.seed === 1) {
-        showConfetti(team.colors[0]);
-      }
-      
-      await fetch('/api/draft/pick', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ teamName, playerIndex })
-      });
-      
-      setTimeout(async () => {
-        await loadData();
-        draftTimeLeft = 120;
-      }, 2200);
+      if (team.seed === 1) showConfetti(team.colors[0]);
+      await fetch('/api/draft/pick', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ teamName, playerIndex }) });
+      setTimeout(async () => { await loadData(); draftTimeLeft = 120; }, 2200);
     }
     
     function showPickAnimation(teamName, team, player) {
       const overlay = document.getElementById('pickOverlay');
       const card = document.getElementById('pickCard');
       const pickNum = appData.draftState.currentPick + 1;
-      
-      card.innerHTML = `
-        <div style="width:280px;border-radius:16px;overflow:hidden;background:linear-gradient(180deg,${team.colors[0]} 0%,${team.colors[0]}dd 100%);box-shadow:0 20px 60px ${team.colors[0]}88,0 0 100px ${team.colors[0]}44;">
-          <div style="padding:32px 24px;text-align:center;position:relative;">
-            <div style="position:absolute;top:-20px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#ffd700,#ffb800);color:#000;padding:6px 20px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;">Pick #${pickNum}</div>
-            <div style="width:80px;height:80px;margin:20px auto 16px;background:${team.colors[1]};border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:36px;font-weight:800;color:${team.colors[0]};box-shadow:0 4px 20px rgba(0,0,0,0.3);">${teamName.charAt(0)}</div>
-            <div style="font-size:28px;font-weight:800;color:${team.colors[1]};text-shadow:0 2px 10px rgba(0,0,0,0.3);">${teamName.toUpperCase()}</div>
-            <div style="display:flex;justify-content:center;gap:12px;margin-top:12px;">
-              <span style="background:${team.colors[1]};color:${team.colors[0]};padding:4px 12px;border-radius:6px;font-size:12px;font-weight:600;">#${team.seed} Seed</span>
-              <span style="background:rgba(255,255,255,0.2);padding:4px 12px;border-radius:6px;font-size:12px;color:${team.colors[1]};">${team.region}</span>
-            </div>
-          </div>
-          <div style="background:rgba(0,0,0,0.3);padding:16px 24px;display:flex;align-items:center;justify-content:center;gap:12px;">
-            <div style="font-size:12px;color:rgba(255,255,255,0.7);">DRAFTED BY</div>
-            <div style="width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,${player.colorPrimary},${player.colorSecondary});display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff;">${player.letter}</div>
-            <div style="font-size:16px;font-weight:600;color:#fff;">${player.name}</div>
-          </div>
-        </div>`;
-      
+      card.innerHTML = `<div style="width:280px;border-radius:16px;overflow:hidden;background:linear-gradient(180deg,${team.colors[0]} 0%,${team.colors[0]}dd 100%);box-shadow:0 20px 60px ${team.colors[0]}88,0 0 100px ${team.colors[0]}44;"><div style="padding:32px 24px;text-align:center;position:relative;"><div style="position:absolute;top:-20px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#ffd700,#ffb800);color:#000;padding:6px 20px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;">Pick #${pickNum}</div><div style="width:80px;height:80px;margin:20px auto 16px;background:${team.colors[1]};border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:36px;font-weight:800;color:${team.colors[0]};box-shadow:0 4px 20px rgba(0,0,0,0.3);">${teamName.charAt(0)}</div><div style="font-size:28px;font-weight:800;color:${team.colors[1]};text-shadow:0 2px 10px rgba(0,0,0,0.3);">${teamName.toUpperCase()}</div><div style="display:flex;justify-content:center;gap:12px;margin-top:12px;"><span style="background:${team.colors[1]};color:${team.colors[0]};padding:4px 12px;border-radius:6px;font-size:12px;font-weight:600;">#${team.seed} Seed</span><span style="background:rgba(255,255,255,0.2);padding:4px 12px;border-radius:6px;font-size:12px;color:${team.colors[1]};">${team.region}</span></div></div><div style="background:rgba(0,0,0,0.3);padding:16px 24px;display:flex;align-items:center;justify-content:center;gap:12px;"><div style="font-size:12px;color:rgba(255,255,255,0.7);">DRAFTED BY</div><div style="width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,${player.colorPrimary},${player.colorSecondary});display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff;">${player.letter}</div><div style="font-size:16px;font-weight:600;color:#fff;">${player.name}</div></div></div>`;
       overlay.classList.add('active');
       setTimeout(() => card.classList.add('show'), 50);
-      
-      setTimeout(() => {
-        card.classList.remove('show');
-        setTimeout(() => overlay.classList.remove('active'), 300);
-      }, 2000);
+      setTimeout(() => { card.classList.remove('show'); setTimeout(() => overlay.classList.remove('active'), 300); }, 2000);
     }
     
     function showConfetti(color) {
       const container = document.getElementById('confettiContainer');
       for (let i = 0; i < 50; i++) {
         const piece = document.createElement('div');
-        piece.className = 'confetti-piece';
-        piece.style.left = Math.random() * 100 + '%';
-        piece.style.background = Math.random() > 0.5 ? color : '#ffd700';
-        piece.style.transform = `rotate(${Math.random() * 360}deg)`;
-        piece.style.animation = `confettiFall ${Math.random() * 2 + 2}s linear forwards`;
+        piece.style.cssText = `position:absolute;width:${Math.random()*10+5}px;height:${Math.random()*10+5}px;background:${Math.random()>0.5?color:'#ffd700'};left:${Math.random()*100}%;top:-20px;opacity:${Math.random()*0.5+0.5};transform:rotate(${Math.random()*360}deg);animation:confettiFall ${Math.random()*2+2}s linear forwards;`;
         container.appendChild(piece);
         setTimeout(() => piece.remove(), 4000);
       }
@@ -837,11 +772,7 @@
       if (!confirm('Reset the draft? This will clear all picks.')) return;
       const clearTeams = confirm('Also clear team assignments from players?');
       stopTimer();
-      await fetch('/api/draft/reset', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ clearTeams })
-      });
+      await fetch('/api/draft/reset', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ clearTeams }) });
       await loadData();
       showToast('Draft reset!');
     }
@@ -852,20 +783,13 @@
       appData.players.forEach(p => { if (p.teams.includes(teamName)) owner = p; });
       const champOdds = oddsData.championship[teamName];
       const ffOdds = oddsData.finalFour[teamName];
-      document.getElementById('teamPopup').innerHTML = `
-        <div class="popup-header" style="background:linear-gradient(135deg,${team.colors[0]},${team.colors[0]}cc)">
-          <button class="popup-close" onclick="closePopup()">✕</button>
-          <div class="popup-team-name">${teamName}</div>
-          <div class="popup-team-info">#${team.seed} Seed · ${team.region} Region · ${team.record}</div>
-        </div>
-        ${champOdds || ffOdds ? `<div class="popup-section"><div class="popup-section-title">Championship Odds</div><div class="odds-grid">${champOdds ? `<div class="odds-item"><div class="odds-label">Championship</div><div class="odds-value">${champOdds}</div></div>` : ''}${ffOdds ? `<div class="odds-item"><div class="odds-label">Final Four</div><div class="odds-value ${ffOdds.startsWith('-')?'negative':''}">${ffOdds}</div></div>` : ''}<div class="odds-item"><div class="odds-label">NET Rank</div><div class="odds-value">#${team.net}</div></div></div></div>` : ''}
-        <div class="popup-section"><div class="popup-section-title">Quadrant Record</div><div class="quadrant-grid"><div class="quadrant-item"><div class="quadrant-label">Q1</div><div class="quadrant-value">${team.q1}</div></div><div class="quadrant-item"><div class="quadrant-label">Q2</div><div class="quadrant-value">${team.q2}</div></div><div class="quadrant-item"><div class="quadrant-label">Q3</div><div class="quadrant-value">${team.q3}</div></div><div class="quadrant-item"><div class="quadrant-label">Q4</div><div class="quadrant-value">${team.q4}</div></div></div></div>
-        ${owner ? `<div class="popup-owner"><div class="popup-owner-avatar" style="background:linear-gradient(135deg,${owner.colorPrimary},${owner.colorSecondary})">${owner.letter}</div><div><div class="popup-owner-label">Drafted by</div><div class="popup-owner-name">${owner.name}</div></div></div>` : ''}`;
+      document.getElementById('teamPopup').innerHTML = `<div class="popup-header" style="background:linear-gradient(135deg,${team.colors[0]},${team.colors[0]}cc)"><button class="popup-close" onclick="closePopup()">✕</button><div class="popup-team-name">${teamName}</div><div class="popup-team-info">#${team.seed} Seed · ${team.region} Region · ${team.record}</div></div>${champOdds || ffOdds ? `<div class="popup-section"><div class="popup-section-title">Championship Odds</div><div class="odds-grid">${champOdds ? `<div class="odds-item"><div class="odds-label">Championship</div><div class="odds-value">${champOdds}</div></div>` : ''}${ffOdds ? `<div class="odds-item"><div class="odds-label">Final Four</div><div class="odds-value ${ffOdds.startsWith('-')?'negative':''}">${ffOdds}</div></div>` : ''}<div class="odds-item"><div class="odds-label">NET Rank</div><div class="odds-value">#${team.net}</div></div></div></div>` : ''}<div class="popup-section"><div class="popup-section-title">Quadrant Record</div><div class="popup-quadrant-grid"><div class="popup-quadrant-item"><div class="popup-quadrant-label">Q1</div><div class="popup-quadrant-value">${team.q1}</div></div><div class="popup-quadrant-item"><div class="popup-quadrant-label">Q2</div><div class="popup-quadrant-value">${team.q2}</div></div><div class="popup-quadrant-item"><div class="popup-quadrant-label">Q3</div><div class="popup-quadrant-value">${team.q3}</div></div><div class="popup-quadrant-item"><div class="popup-quadrant-label">Q4</div><div class="popup-quadrant-value">${team.q4}</div></div></div></div>${owner ? `<div class="popup-owner"><div class="popup-owner-avatar" style="background:linear-gradient(135deg,${owner.colorPrimary},${owner.colorSecondary})">${owner.letter}</div><div><div class="popup-owner-label">Drafted by</div><div class="popup-owner-name">${owner.name}</div></div></div>` : ''}`;
       document.getElementById('popupOverlay').classList.add('active');
     }
     
     function closePopup() { document.getElementById('popupOverlay').classList.remove('active'); }
     document.getElementById('popupOverlay').addEventListener('click', e => { if (e.target.id === 'popupOverlay') closePopup(); });
+    document.getElementById('scoutingOverlay').addEventListener('click', e => { if (e.target.id === 'scoutingOverlay') closeScoutingReport(); });
     
     function showToast(msg) {
       const toast = document.getElementById('toast');
