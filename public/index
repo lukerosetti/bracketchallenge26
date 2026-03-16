@@ -1,1 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jack Hughes Jersey Bet | NCAAB 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --navy: #0d1b2a; --navy-light: #1b263b;
+      --red: #bf0a30; --red-dark: #8b0000;
+      --blue: #002868; --gold: #ffd700; --green: #00d4aa;
+    }
+    body { font-family: 'Inter', sans-serif; background: linear-gradient(180deg, var(--navy) 0%, #0a1628 100%); color: #fff; min-height: 100vh; }
+    
+    /* Header */
+    .header { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%); padding: 16px 20px; border-bottom: 4px solid; border-image: repeating-linear-gradient(90deg, var(--red) 0px, var(--red) 30px, #fff 30px, #fff 60px, var(--blue) 60px, var(--blue) 90px) 1; }
+    .header-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+    .header-left { display: flex; align-items: center; gap: 14px; }
+    .flag-logo { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(180deg, var(--red) 0%, var(--red) 15%, #fff 15%, #fff 30%, var(--red) 30%, var(--red) 45%, #fff 45%, #fff 60%, var(--red) 60%, var(--red) 75%, #fff 75%, #fff 100%); position: relative; border: 2px solid var(--gold); }
+    .flag-logo::before { content: ''; position: absolute; top: 0; left: 0; width: 50%; height: 60%; background: var(--blue); border-radius: 50% 0 0 0; }
+    .header-title h1 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 2px; }
+    .header-title .subtitle { font-size: 14px; color: var(--gold); letter-spacing: 3px; }
+    .jersey-number { font-family: 'Bebas Neue', sans-serif; font-size: 42px; color: #fff; background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%); padding: 4px 14px; border-radius: 8px; border: 2px solid var(--gold); line-height: 1; }
+    
+    /* Race */
+    .race-container { background: rgba(0,0,0,0.3); border-radius: 12px; padding: 16px; margin-top: 8px; }
+    .race-title { font-family: 'Bebas Neue', sans-serif; font-size: 16px; color: rgba(255,255,255,0.6); letter-spacing: 2px; margin-bottom: 12px; }
+    .race-lanes { display: flex; flex-direction: column; gap: 8px; }
+    .race-lane { display: flex; align-items: center; gap: 10px; }
+    .race-avatar { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0; }
+    .race-track { flex: 1; height: 24px; background: rgba(255,255,255,0.1); border-radius: 4px; position: relative; }
+    .race-progress { height: 100%; border-radius: 4px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; font-size: 12px; font-weight: 700; min-width: 40px; }
+    .race-potential { height: 100%; border-radius: 4px; position: absolute; top: 0; border: 2px dashed rgba(255,255,255,0.4); background: repeating-linear-gradient(90deg, transparent 0px, transparent 4px, rgba(255,255,255,0.1) 4px, rgba(255,255,255,0.1) 8px); }
+    .race-info { width: 80px; text-align: right; font-size: 11px; color: rgba(255,255,255,0.6); }
+    .race-pills { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+    .race-pill { background: rgba(255,255,255,0.1); padding: 6px 12px; border-radius: 20px; font-size: 11px; color: rgba(255,255,255,0.8); }
+    .race-pill strong { color: var(--gold); }
+    
+    /* Tabs */
+    .tabs { display: flex; gap: 4px; padding: 12px 16px; background: rgba(0,0,0,0.2); overflow-x: auto; }
+    .tab { display: flex; align-items: center; gap: 8px; padding: 10px 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: rgba(255,255,255,0.6); cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+    .tab:hover { background: rgba(255,255,255,0.1); }
+    .tab.active { background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%); color: #fff; border-color: var(--gold); }
+    .tab-number { width: 22px; height: 22px; background: rgba(255,255,255,0.2); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 14px; }
+    
+    /* Content */
+    .content { padding: 16px; }
+    .panel { display: none; }
+    .panel.active { display: block; }
+    
+    /* Standings */
+    .standings-list { display: flex; flex-direction: column; gap: 12px; }
+    .standing-card { display: flex; align-items: center; gap: 14px; padding: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; }
+    .standing-card:first-child { background: linear-gradient(135deg, rgba(255,215,0,0.15), rgba(255,180,0,0.08)); border-color: rgba(255,215,0,0.3); }
+    .standing-rank { font-size: 24px; width: 36px; text-align: center; }
+    .standing-avatar { width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 700; }
+    .standing-info { flex: 1; }
+    .standing-name { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+    .standing-teams { display: flex; gap: 6px; flex-wrap: wrap; }
+    .team-chip { padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 600; border: 1px solid rgba(255,255,255,0.2); cursor: pointer; }
+    .team-chip.eliminated { opacity: 0.4; text-decoration: line-through; }
+    .standing-points { text-align: right; }
+    .points-current { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: var(--gold); line-height: 1; }
+    .points-potential { font-size: 12px; color: rgba(255,255,255,0.5); }
+    
+    /* BRACKET STYLES */
+    .bracket-wrapper { overflow-x: auto; padding-bottom: 20px; }
+    .bracket-container { display: flex; gap: 0; min-width: 1200px; align-items: stretch; }
+    .bracket-region { flex: 1; display: flex; flex-direction: column; }
+    .region-label { text-align: center; font-family: 'Bebas Neue', sans-serif; font-size: 16px; letter-spacing: 2px; padding: 8px; margin-bottom: 8px; }
+    .region-label.east, .region-label.south { color: var(--red); }
+    .region-label.west, .region-label.midwest { color: var(--blue); }
+    
+    .bracket-rounds { display: flex; flex: 1; }
+    .bracket-round { display: flex; flex-direction: column; justify-content: space-around; padding: 4px; min-width: 140px; }
+    .round-label { text-align: center; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.4); margin-bottom: 8px; }
+    
+    .matchup { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; margin: 4px 0; overflow: hidden; }
+    .matchup.live { border-color: rgba(239,68,68,0.5); background: rgba(239,68,68,0.05); }
+    .matchup-team { display: flex; align-items: center; padding: 6px 8px; cursor: pointer; transition: background 0.2s; gap: 6px; }
+    .matchup-team:hover { background: rgba(255,255,255,0.1); }
+    .matchup-team.winner { background: rgba(0,212,170,0.1); }
+    .matchup-team.eliminated { opacity: 0.4; }
+    .matchup-team.eliminated .team-name { text-decoration: line-through; }
+    .matchup-team + .matchup-team { border-top: 1px solid rgba(255,255,255,0.05); }
+    
+    .seed-badge { width: 20px; height: 20px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; }
+    .seed-1-4 { background: linear-gradient(135deg, var(--gold), #ffb800); color: #000; }
+    .seed-5-8 { background: rgba(0,212,170,0.3); color: var(--green); }
+    .seed-9-12 { background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.8); }
+    .seed-13-16 { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); }
+    
+    .team-name { flex: 1; font-size: 11px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .team-score { font-size: 12px; font-weight: 700; min-width: 24px; text-align: right; }
+    .team-owner { width: 18px; height: 18px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; flex-shrink: 0; }
+    
+    .live-badge { background: rgba(239,68,68,0.2); color: #f87171; font-size: 9px; font-weight: 600; padding: 2px 6px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 4px; }
+    .live-dot { width: 6px; height: 6px; background: #ef4444; border-radius: 50%; animation: pulse 1.5s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+    
+    .final-four { display: flex; flex-direction: column; justify-content: center; align-items: center; min-width: 160px; padding: 20px 10px; gap: 16px; }
+    .ff-label { font-family: 'Bebas Neue', sans-serif; font-size: 14px; letter-spacing: 2px; color: rgba(255,255,255,0.5); }
+    .ff-matchup { background: linear-gradient(135deg, rgba(191,10,48,0.1), rgba(0,40,104,0.1)); border: 1px solid rgba(255,215,0,0.3); border-radius: 8px; padding: 12px; width: 100%; text-align: center; }
+    .ff-region { font-size: 10px; color: rgba(255,255,255,0.5); margin-bottom: 4px; }
+    .ff-team { font-size: 14px; font-weight: 600; }
+    .championship { background: linear-gradient(135deg, rgba(255,215,0,0.2), rgba(255,180,0,0.1)); border: 2px solid var(--gold); border-radius: 10px; padding: 16px; text-align: center; }
+    .championship .trophy { font-size: 32px; margin-bottom: 8px; }
+    .championship .champ-label { font-size: 10px; color: var(--gold); letter-spacing: 1px; margin-bottom: 4px; }
+    .championship .champ-team { font-family: 'Bebas Neue', sans-serif; font-size: 24px; }
+    
+    .matchup-empty { background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.1); border-radius: 6px; margin: 4px 0; padding: 20px 8px; text-align: center; font-size: 10px; color: rgba(255,255,255,0.3); }
+    
+    /* Live Tab */
+    .live-games { display: flex; flex-direction: column; gap: 12px; }
+    .live-game { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; overflow: hidden; }
+    .live-game.is-live { border-color: rgba(239,68,68,0.5); background: rgba(239,68,68,0.08); }
+    .game-team { display: flex; align-items: center; gap: 10px; padding: 12px; }
+    .game-team + .game-team { border-top: 1px solid rgba(255,255,255,0.1); }
+    .game-team.winner .team-name { color: var(--green); }
+    .game-score { font-size: 18px; font-weight: 700; min-width: 36px; text-align: right; }
+    .game-status { display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: rgba(255,255,255,0.05); border-top: 1px solid rgba(255,255,255,0.1); }
+    .status-live { display: flex; align-items: center; gap: 6px; color: #f87171; font-weight: 600; font-size: 12px; }
+    .watch-btn { display: flex; align-items: center; gap: 6px; padding: 6px 12px; background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%); border: none; border-radius: 6px; color: white; font-size: 12px; font-weight: 600; cursor: pointer; text-decoration: none; }
+    .channel-badge { padding: 4px 8px; background: rgba(255,255,255,0.1); border-radius: 4px; font-size: 11px; font-weight: 600; }
+    .no-games { text-align: center; padding: 48px 20px; color: rgba(255,255,255,0.5); }
+    .no-games-icon { font-size: 48px; margin-bottom: 12px; }
+    
+    /* Scoring Tab */
+    .scoring-section { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 16px; margin-bottom: 16px; }
+    .scoring-title { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 1px; margin-bottom: 12px; color: var(--gold); }
+    .scoring-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .scoring-item { background: rgba(255,255,255,0.05); padding: 12px; border-radius: 8px; text-align: center; }
+    .scoring-round { font-size: 11px; color: rgba(255,255,255,0.5); margin-bottom: 4px; }
+    .scoring-points { font-family: 'Bebas Neue', sans-serif; font-size: 28px; }
+    .multiplier-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    .multiplier-item { background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; text-align: center; }
+    .multiplier-seeds { font-size: 12px; color: rgba(255,255,255,0.6); margin-bottom: 4px; }
+    .multiplier-value { font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: var(--green); }
+    
+    /* Draft Tab */
+    .draft-controls { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; align-items: center; }
+    .draft-btn { padding: 12px 24px; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 8px; }
+    .draft-btn:hover { transform: translateY(-2px); }
+    .draft-btn.primary { background: linear-gradient(135deg, var(--green), #00a080); color: #000; }
+    .draft-btn.test { background: linear-gradient(135deg, #f59e0b, #d97706); color: #000; }
+    .draft-btn.danger { background: linear-gradient(135deg, var(--red), var(--red-dark)); color: #fff; }
+    .draft-btn.secondary { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2); }
+    .draft-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+    
+    .draft-status { background: rgba(0,212,170,0.1); border: 1px solid rgba(0,212,170,0.3); border-radius: 12px; padding: 20px; margin-bottom: 20px; text-align: center; }
+    .draft-status.inactive { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); }
+    .draft-status.test-mode { background: rgba(245,158,11,0.1); border-color: rgba(245,158,11,0.3); }
+    .draft-pick-number { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--gold); line-height: 1; }
+    .draft-current-player { font-size: 18px; margin-top: 8px; }
+    .draft-timer { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: #f87171; margin-top: 8px; }
+    
+    .draft-order { background: rgba(0,0,0,0.2); border-radius: 12px; padding: 16px; margin-bottom: 20px; }
+    .draft-order-title { font-size: 14px; font-weight: 600; margin-bottom: 12px; color: rgba(255,255,255,0.7); }
+    .draft-order-list { display: flex; gap: 8px; flex-wrap: wrap; }
+    .draft-order-item { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.1); padding: 8px 14px; border-radius: 8px; cursor: grab; }
+    .draft-order-item.active { background: var(--green); color: #000; }
+    .order-number { width: 24px; height: 24px; background: var(--gold); color: #000; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; }
+    .order-avatar { width: 28px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; }
+    
+    .draft-teams-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 6px; max-height: 400px; overflow-y: auto; padding: 4px; margin-bottom: 20px; }
+    .draft-team-btn { display: flex; align-items: center; gap: 6px; padding: 8px 10px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; cursor: pointer; transition: all 0.2s; font-size: 11px; color: #fff; text-align: left; }
+    .draft-team-btn:hover:not(.drafted) { background: rgba(255,255,255,0.1); border-color: var(--gold); }
+    .draft-team-btn.drafted { opacity: 0.3; cursor: not-allowed; }
+    
+    .draft-board { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+    .draft-player { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 12px; }
+    .draft-player-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .draft-player-avatar { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+    .draft-player-name { font-weight: 600; }
+    .draft-player-count { font-size: 12px; color: rgba(255,255,255,0.5); }
+    .draft-player-teams { display: flex; flex-direction: column; gap: 4px; max-height: 200px; overflow-y: auto; }
+    .draft-team { display: flex; align-items: center; gap: 8px; padding: 6px 8px; background: rgba(255,255,255,0.05); border-radius: 6px; font-size: 12px; cursor: pointer; }
+    
+    /* Popup */
+    .popup-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
+    .popup-overlay.active { display: flex; }
+    .team-popup { background: var(--navy-light); border-radius: 16px; width: 100%; max-width: 400px; overflow: hidden; border: 1px solid rgba(255,255,255,0.2); }
+    .popup-header { padding: 20px; position: relative; }
+    .popup-close { position: absolute; top: 12px; right: 12px; width: 32px; height: 32px; background: rgba(255,255,255,0.1); border: none; border-radius: 8px; color: white; font-size: 18px; cursor: pointer; }
+    .popup-team-name { font-family: 'Bebas Neue', sans-serif; font-size: 32px; margin-bottom: 4px; }
+    .popup-team-info { font-size: 14px; color: rgba(255,255,255,0.7); }
+    .popup-section { padding: 16px 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .popup-section-title { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.5); margin-bottom: 12px; }
+    .odds-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .odds-item { background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; text-align: center; }
+    .odds-label { font-size: 10px; color: rgba(255,255,255,0.5); margin-bottom: 4px; }
+    .odds-value { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--green); }
+    .odds-value.negative { color: var(--gold); }
+    .quadrant-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    .quadrant-item { background: rgba(255,255,255,0.05); padding: 8px; border-radius: 6px; text-align: center; }
+    .quadrant-label { font-size: 10px; color: rgba(255,255,255,0.5); margin-bottom: 2px; }
+    .quadrant-value { font-weight: 700; font-size: 14px; }
+    .popup-owner { display: flex; align-items: center; gap: 10px; padding: 16px 20px; background: rgba(255,255,255,0.05); }
+    .popup-owner-avatar { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; }
+    .popup-owner-label { font-size: 12px; color: rgba(255,255,255,0.5); }
+    .popup-owner-name { font-weight: 600; }
+    
+    .refresh-btn { position: fixed; bottom: 20px; right: 20px; width: 56px; height: 56px; background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%); border: 2px solid var(--gold); border-radius: 50%; color: white; font-size: 24px; cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,0.4); z-index: 100; }
+    .last-update { text-align: center; padding: 12px; font-size: 11px; color: rgba(255,255,255,0.4); }
+    
+    .toast { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--green); color: #000; padding: 12px 24px; border-radius: 8px; font-weight: 600; opacity: 0; transition: all 0.3s; z-index: 1000; }
+    .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-top">
+      <div class="header-left">
+        <div class="flag-logo"></div>
+        <div class="header-title">
+          <h1>JACK HUGHES JERSEY BET</h1>
+          <div class="subtitle">NCAAB 2026</div>
+        </div>
+      </div>
+      <div class="jersey-number">2026</div>
+    </div>
+    <div class="race-container" id="raceContainer">
+      <div class="race-title">🏁 THE RACE</div>
+      <div class="race-lanes" id="raceLanes"></div>
+      <div class="race-pills" id="racePills"></div>
+    </div>
+  </header>
+  
+  <nav class="tabs">
+    <div class="tab active" data-tab="standings"><span class="tab-number">1</span><span>Standings</span></div>
+    <div class="tab" data-tab="bracket"><span class="tab-number">2</span><span>Bracket</span></div>
+    <div class="tab" data-tab="live"><span class="tab-number">3</span><span>Live</span></div>
+    <div class="tab" data-tab="scoring"><span class="tab-number">4</span><span>Scoring</span></div>
+    <div class="tab" data-tab="draft"><span class="tab-number">5</span><span>Draft</span></div>
+  </nav>
+  
+  <main class="content">
+    <div class="panel active" id="standings"><div class="standings-list" id="standingsList"></div></div>
+    <div class="panel" id="bracket"><div class="bracket-wrapper"><div class="bracket-container" id="bracketContainer"></div></div></div>
+    <div class="panel" id="live"><div class="live-games" id="liveGames"></div></div>
+    <div class="panel" id="scoring">
+      <div class="scoring-section">
+        <div class="scoring-title">Points Per Round</div>
+        <div class="scoring-grid">
+          <div class="scoring-item"><div class="scoring-round">Round 1</div><div class="scoring-points">1</div></div>
+          <div class="scoring-item"><div class="scoring-round">Round 2</div><div class="scoring-points">2</div></div>
+          <div class="scoring-item"><div class="scoring-round">Sweet 16</div><div class="scoring-points">8</div></div>
+          <div class="scoring-item"><div class="scoring-round">Elite 8</div><div class="scoring-points">16</div></div>
+          <div class="scoring-item"><div class="scoring-round">Final Four</div><div class="scoring-points">32</div></div>
+          <div class="scoring-item"><div class="scoring-round">Championship</div><div class="scoring-points">32</div></div>
+        </div>
+      </div>
+      <div class="scoring-section">
+        <div class="scoring-title">Seed Multipliers</div>
+        <div class="multiplier-grid">
+          <div class="multiplier-item"><div class="multiplier-seeds">Seeds 1-4</div><div class="multiplier-value">1x</div></div>
+          <div class="multiplier-item"><div class="multiplier-seeds">Seeds 5-8</div><div class="multiplier-value">1.5x</div></div>
+          <div class="multiplier-item"><div class="multiplier-seeds">Seeds 9-12</div><div class="multiplier-value">2x</div></div>
+          <div class="multiplier-item"><div class="multiplier-seeds">Seeds 13-16</div><div class="multiplier-value">3x</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="panel" id="draft">
+      <div class="draft-controls" id="draftControls">
+        <button class="draft-btn primary" onclick="startDraft(false)">🚀 Start Draft</button>
+        <button class="draft-btn test" onclick="startDraft(true)">🧪 Test Draft</button>
+        <button class="draft-btn danger" onclick="resetDraft()" style="display:none" id="resetBtn">🔄 Reset</button>
+        <button class="draft-btn secondary" onclick="endDraft()" style="display:none" id="endBtn">⏹️ End Draft</button>
+      </div>
+      <div class="draft-status inactive" id="draftStatus">
+        <div>Click "Start Draft" or "Test Draft" to begin</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-top:8px">Test mode lets you practice without saving picks</div>
+      </div>
+      <div class="draft-order" id="draftOrderSection">
+        <div class="draft-order-title">Draft Order (Snake: 1→2→3→4→4→3→2→1...)</div>
+        <div class="draft-order-list" id="draftOrderList"></div>
+      </div>
+      <div class="draft-teams-grid" id="draftTeamsGrid" style="display:none"></div>
+      <div class="draft-board" id="draftBoard"></div>
+    </div>
+  </main>
+  
+  <div class="last-update" id="lastUpdate"></div>
+  <button class="refresh-btn" onclick="loadData()">↻</button>
+  
+  <div class="popup-overlay" id="popupOverlay"><div class="team-popup" id="teamPopup"></div></div>
+  <div class="toast" id="toast"></div>
+
+  <script>
+    let appData = null, teamsData = null, oddsData = null, liveScores = {};
+    let draftTimer = null, draftTimeLeft = 120;
+    
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+    
+    async function loadData() {
+      try {
+        const [dataRes, teamsRes, oddsRes, standingsRes] = await Promise.all([
+          fetch('/api/data'), fetch('/api/teams'), fetch('/api/odds/all'), fetch('/api/standings')
+        ]);
+        appData = await dataRes.json();
+        teamsData = await teamsRes.json();
+        oddsData = await oddsRes.json();
+        const standings = await standingsRes.json();
+        
+        renderRace(standings);
+        renderStandings(standings);
+        renderBracket();
+        renderDraft();
+        renderDraftOrder();
+        renderDraftStatus();
+        loadLiveGames();
+        
+        document.getElementById('lastUpdate').textContent = 'Last updated: ' + new Date(appData.lastUpdate).toLocaleString();
+      } catch (err) { console.error('Failed to load:', err); }
+    }
+    
+    function renderRace(standings) {
+      const maxPossible = Math.max(...standings.map(s => s.maxPoints), 1);
+      const leader = standings[0];
+      document.getElementById('raceLanes').innerHTML = standings.map(s => {
+        const progressPct = (s.totalPoints / maxPossible) * 100;
+        const potentialPct = (s.potentialPoints / maxPossible) * 100;
+        return `<div class="race-lane">
+          <div class="race-avatar" style="background:linear-gradient(135deg,${s.colorPrimary},${s.colorSecondary})">${s.letter}</div>
+          <div class="race-track">
+            <div class="race-progress" style="width:${Math.max(progressPct,8)}%;background:linear-gradient(90deg,${s.colorPrimary},${s.colorSecondary})">${s.totalPoints}</div>
+            <div class="race-potential" style="left:${progressPct}%;width:${potentialPct}%"></div>
+          </div>
+          <div class="race-info">${s.teamsAlive} alive</div>
+        </div>`;
+      }).join('');
+      const gap = leader.totalPoints - (standings[1]?.totalPoints || 0);
+      const maxP = standings.reduce((a,b) => a.maxPoints > b.maxPoints ? a : b);
+      document.getElementById('racePills').innerHTML = `
+        <div class="race-pill"><strong>${leader.name}</strong> leads by ${gap} pts</div>
+        <div class="race-pill">Max potential: <strong>${maxP.name}</strong> (${maxP.maxPoints})</div>
+        <div class="race-pill">${standings.reduce((sum,s) => sum + s.teamsAlive, 0)} teams alive</div>`;
+    }
+    
+    function renderStandings(standings) {
+      document.getElementById('standingsList').innerHTML = standings.map((s, i) => {
+        const rank = i === 0 ? '👑' : i === 1 ? '🥈' : i === 2 ? '🥉' : `#${i+1}`;
+        const chips = s.teams.map(t => {
+          const team = teamsData[t]; if (!team) return '';
+          let elim = false;
+          for (const r of Object.keys(appData.bracket)) { const x = appData.bracket[r].find(y => y.name === t); if (x?.eliminated) elim = true; }
+          return `<span class="team-chip ${elim?'eliminated':''}" style="background:linear-gradient(135deg,${team.colors[0]},${team.colors[0]}dd)" onclick="showTeamPopup('${t}')">${t}</span>`;
+        }).join('');
+        return `<div class="standing-card">
+          <div class="standing-rank">${rank}</div>
+          <div class="standing-avatar" style="background:linear-gradient(135deg,${s.colorPrimary},${s.colorSecondary})">${s.letter}</div>
+          <div class="standing-info"><div class="standing-name">${s.name}</div><div class="standing-teams">${chips}</div></div>
+          <div class="standing-points"><div class="points-current">${s.totalPoints}</div><div class="points-potential">+${s.potentialPoints} potential</div></div>
+        </div>`;
+      }).join('');
+    }
+    
+    function getMatchups(regionTeams) {
+      const sorted = [...regionTeams].sort((a,b) => a.seed - b.seed);
+      const order = [1,16,8,9,5,12,4,13,6,11,3,14,7,10,2,15];
+      const matchups = [];
+      for (let i = 0; i < order.length; i += 2) {
+        const t1 = sorted.find(t => t.seed === order[i]);
+        const t2 = sorted.find(t => t.seed === order[i+1]);
+        matchups.push([t1, t2]);
+      }
+      return matchups;
+    }
+    
+    function renderBracket() {
+      const regions = {left: ['East', 'South'], right: ['West', 'Midwest']};
+      const roundNames = ['R64', 'R32', 'S16', 'E8'];
+      let html = '';
+      
+      regions.left.forEach(region => {
+        const teams = appData.bracket[region] || [];
+        const matchups = getMatchups(teams);
+        html += `<div class="bracket-region"><div class="region-label ${region.toLowerCase()}">${region.toUpperCase()}</div><div class="bracket-rounds">`;
+        html += `<div class="bracket-round"><div class="round-label">Round 1</div>`;
+        matchups.forEach(([t1, t2]) => { html += renderMatchup(t1, t2); });
+        html += `</div>`;
+        [4, 2, 1].forEach((count, ri) => {
+          html += `<div class="bracket-round"><div class="round-label">${roundNames[ri+1]}</div>`;
+          for (let i = 0; i < count; i++) { html += `<div class="matchup-empty">TBD</div>`; }
+          html += `</div>`;
+        });
+        html += `</div></div>`;
+      });
+      
+      html += `<div class="final-four">
+        <div class="ff-label">FINAL FOUR</div>
+        <div class="ff-matchup"><div class="ff-region">East Champion</div><div class="ff-team">TBD</div></div>
+        <div class="ff-matchup"><div class="ff-region">South Champion</div><div class="ff-team">TBD</div></div>
+        <div class="championship"><div class="trophy">🏆</div><div class="champ-label">CHAMPION</div><div class="champ-team">TBD</div></div>
+        <div class="ff-matchup"><div class="ff-region">West Champion</div><div class="ff-team">TBD</div></div>
+        <div class="ff-matchup"><div class="ff-region">Midwest Champion</div><div class="ff-team">TBD</div></div>
+      </div>`;
+      
+      regions.right.forEach(region => {
+        const teams = appData.bracket[region] || [];
+        const matchups = getMatchups(teams);
+        html += `<div class="bracket-region"><div class="region-label ${region.toLowerCase()}">${region.toUpperCase()}</div><div class="bracket-rounds" style="flex-direction:row-reverse">`;
+        [1, 2, 4].forEach((count, ri) => {
+          html += `<div class="bracket-round"><div class="round-label">${roundNames[3-ri]}</div>`;
+          for (let i = 0; i < count; i++) { html += `<div class="matchup-empty">TBD</div>`; }
+          html += `</div>`;
+        });
+        html += `<div class="bracket-round"><div class="round-label">Round 1</div>`;
+        matchups.forEach(([t1, t2]) => { html += renderMatchup(t1, t2); });
+        html += `</div></div></div>`;
+      });
+      
+      document.getElementById('bracketContainer').innerHTML = html;
+    }
+    
+    function renderMatchup(t1, t2) {
+      if (!t1 || !t2) return '<div class="matchup-empty">TBD</div>';
+      const live = liveScores[t1.name] || liveScores[t2.name];
+      return `<div class="matchup ${live ? 'live' : ''}">${renderMatchupTeam(t1, live)}${renderMatchupTeam(t2, live)}${live ? `<div class="live-badge"><span class="live-dot"></span>${live.clock || 'LIVE'}</div>` : ''}</div>`;
+    }
+    
+    function renderMatchupTeam(t, live) {
+      const info = teamsData[t.name] || {};
+      const seedClass = info.seed <= 4 ? 'seed-1-4' : info.seed <= 8 ? 'seed-5-8' : info.seed <= 12 ? 'seed-9-12' : 'seed-13-16';
+      let owner = null;
+      appData.players.forEach(p => { if (p.teams.includes(t.name)) owner = p; });
+      const score = live?.scores?.[t.name];
+      return `<div class="matchup-team ${t.eliminated ? 'eliminated' : ''} ${t.wins > 0 && !t.eliminated ? 'winner' : ''}" onclick="showTeamPopup('${t.name}')">
+        <span class="seed-badge ${seedClass}">${info.seed || '?'}</span>
+        <span class="team-name">${t.name}</span>
+        ${owner ? `<span class="team-owner" style="background:linear-gradient(135deg,${owner.colorPrimary},${owner.colorSecondary})">${owner.letter}</span>` : ''}
+        ${score !== undefined ? `<span class="team-score">${score}</span>` : ''}
+      </div>`;
+    }
+    
+    async function loadLiveGames() {
+      try {
+        const res = await fetch('/api/scores');
+        const data = await res.json();
+        liveScores = {};
+        
+        if (!data.events || data.events.length === 0) {
+          document.getElementById('liveGames').innerHTML = `<div class="no-games"><div class="no-games-icon">🏀</div><div>No games right now</div><div style="margin-top:8px;font-size:13px">Check back during tournament games!</div></div>`;
+          return;
+        }
+        
+        const html = data.events.map(event => {
+          const comp = event.competitions[0];
+          const teams = comp.competitors;
+          const status = comp.status;
+          const isLive = status.type.state === 'in';
+          const isFinal = status.type.completed;
+          const broadcast = comp.broadcasts?.[0]?.names?.[0] || 'TV';
+          
+          if (isLive) {
+            teams.forEach(t => {
+              liveScores[t.team.displayName] = { clock: status.displayClock, scores: {} };
+              teams.forEach(x => { liveScores[t.team.displayName].scores[x.team.displayName] = x.score; });
+            });
+          }
+          
+          const teamRows = teams.map(t => {
+            const isWinner = isFinal && t.winner;
+            let owner = null;
+            appData.players.forEach(p => { if (p.teams.includes(t.team.displayName)) owner = p; });
+            return `<div class="game-team ${isWinner ? 'winner' : ''}">
+              <span class="seed-badge ${(t.curatedRank?.current||99) <= 4 ? 'seed-1-4' : 'seed-5-8'}">${t.curatedRank?.current || '-'}</span>
+              <span class="team-name" style="flex:1">${t.team.displayName}</span>
+              ${owner ? `<span class="team-owner" style="background:linear-gradient(135deg,${owner.colorPrimary},${owner.colorSecondary})">${owner.letter}</span>` : ''}
+              <span class="game-score">${t.score || '-'}</span>
+            </div>`;
+          }).join('');
+          
+          return `<div class="live-game ${isLive ? 'is-live' : ''}">${teamRows}
+            <div class="game-status">
+              ${isLive ? `<div class="status-live"><span class="live-dot"></span>${status.displayClock || ''} - ${status.period === 1 ? '1st Half' : '2nd Half'}</div>` : isFinal ? `<span style="color:var(--green);font-size:12px;font-weight:600">✓ FINAL</span>` : `<span style="font-size:12px;color:rgba(255,255,255,0.5)">${new Date(event.date).toLocaleTimeString([],{hour:'numeric',minute:'2-digit'})}</span>`}
+              <div style="display:flex;gap:8px;align-items:center">
+                <span class="channel-badge">${broadcast}</span>
+                <a href="https://www.ncaa.com/march-madness-live/watch" target="_blank" class="watch-btn">▶ Watch</a>
+              </div>
+            </div>
+          </div>`;
+        }).join('');
+        
+        document.getElementById('liveGames').innerHTML = html;
+        renderBracket();
+      } catch (err) {
+        document.getElementById('liveGames').innerHTML = `<div class="no-games"><div class="no-games-icon">📡</div><div>Unable to load live scores</div></div>`;
+      }
+    }
+    
+    // DRAFT FUNCTIONS
+    function renderDraftOrder() {
+      const order = appData.draftState.order.length > 0 ? appData.draftState.order : [0, 1, 2, 3];
+      document.getElementById('draftOrderList').innerHTML = order.map((playerIdx, i) => {
+        const player = appData.players[playerIdx];
+        const isActive = appData.draftState.active && getCurrentPickerIndex() === playerIdx;
+        return `<div class="draft-order-item ${isActive ? 'active' : ''}">
+          <span class="order-number">${i + 1}</span>
+          <div class="order-avatar" style="background:linear-gradient(135deg,${player.colorPrimary},${player.colorSecondary})">${player.letter}</div>
+          <span>${player.name}</span>
+        </div>`;
+      }).join('');
+    }
+    
+    function getCurrentPickerIndex() {
+      const state = appData.draftState;
+      if (!state.active) return -1;
+      const pickNum = state.currentPick;
+      const round = Math.floor(pickNum / 4);
+      const pos = pickNum % 4;
+      const isReverse = round % 2 === 1;
+      const orderIdx = isReverse ? (3 - pos) : pos;
+      return state.order[orderIdx];
+    }
+    
+    function renderDraftStatus() {
+      const state = appData.draftState;
+      const statusEl = document.getElementById('draftStatus');
+      const teamsGrid = document.getElementById('draftTeamsGrid');
+      const resetBtn = document.getElementById('resetBtn');
+      const endBtn = document.getElementById('endBtn');
+      
+      if (state.active) {
+        const pickerIdx = getCurrentPickerIndex();
+        const picker = appData.players[pickerIdx];
+        statusEl.className = state.testMode ? 'draft-status test-mode' : 'draft-status';
+        statusEl.innerHTML = `
+          ${state.testMode ? '<div style="color:#f59e0b;font-size:12px;font-weight:600;margin-bottom:8px">🧪 TEST MODE - Picks won\'t be saved</div>' : ''}
+          <div class="draft-pick-number">Pick #${state.currentPick + 1} of 64</div>
+          <div class="draft-current-player">
+            <span style="display:inline-block;width:28px;height:28px;border-radius:6px;background:linear-gradient(135deg,${picker.colorPrimary},${picker.colorSecondary});vertical-align:middle;margin-right:8px;text-align:center;line-height:28px;font-size:14px;font-weight:700">${picker.letter}</span>
+            ${picker.name}'s turn
+          </div>
+          <div class="draft-timer" id="draftTimerDisplay">2:00</div>
+        `;
+        teamsGrid.style.display = 'grid';
+        resetBtn.style.display = 'none';
+        endBtn.style.display = 'inline-flex';
+        renderAvailableTeams();
+        startTimer();
+      } else {
+        statusEl.className = 'draft-status inactive';
+        const picksCount = state.picks?.length || 0;
+        statusEl.innerHTML = picksCount > 0 
+          ? `<div style="color:var(--green);font-size:16px;font-weight:600">Draft Complete!</div><div style="margin-top:8px">${picksCount} picks made</div>`
+          : `<div>Click "Start Draft" or "Test Draft" to begin</div><div style="font-size:13px;color:rgba(255,255,255,0.5);margin-top:8px">Test mode lets you practice without saving picks</div>`;
+        teamsGrid.style.display = 'none';
+        resetBtn.style.display = picksCount > 0 ? 'inline-flex' : 'none';
+        endBtn.style.display = 'none';
+        stopTimer();
+      }
+      renderDraftOrder();
+    }
+    
+    function renderAvailableTeams() {
+      const draftedTeams = new Set(appData.draftState.picks?.map(p => p.team) || []);
+      appData.players.forEach(p => p.teams.forEach(t => draftedTeams.add(t)));
+      
+      const teams = Object.entries(teamsData).sort((a, b) => a[1].seed - b[1].seed);
+      document.getElementById('draftTeamsGrid').innerHTML = teams.map(([name, info]) => {
+        const drafted = draftedTeams.has(name);
+        const seedClass = info.seed <= 4 ? 'seed-1-4' : info.seed <= 8 ? 'seed-5-8' : info.seed <= 12 ? 'seed-9-12' : 'seed-13-16';
+        return `<button class="draft-team-btn ${drafted ? 'drafted' : ''}" onclick="${drafted ? '' : `makePick('${name}')`}" ${drafted ? 'disabled' : ''}>
+          <span class="seed-badge ${seedClass}">${info.seed}</span>
+          <span>${name}</span>
+        </button>`;
+      }).join('');
+    }
+    
+    async function startDraft(testMode) {
+      const order = [0, 1, 2, 3]; // Default order
+      await fetch('/api/draft/start', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ order, timerSeconds: 120, testMode })
+      });
+      await loadData();
+      showToast(testMode ? '🧪 Test draft started!' : '🚀 Draft started!');
+    }
+    
+    async function makePick(teamName) {
+      const playerIndex = getCurrentPickerIndex();
+      await fetch('/api/draft/pick', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ teamName, playerIndex })
+      });
+      await loadData();
+      showToast(`${appData.players[playerIndex].name} drafted ${teamName}!`);
+    }
+    
+    async function endDraft() {
+      await fetch('/api/draft/end', { method: 'POST' });
+      await loadData();
+      showToast('Draft ended!');
+    }
+    
+    async function resetDraft() {
+      if (!confirm('Reset the draft? This will clear all picks.')) return;
+      const clearTeams = confirm('Also clear team assignments from players?');
+      await fetch('/api/draft/reset', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ clearTeams })
+      });
+      await loadData();
+      showToast('Draft reset!');
+    }
+    
+    function startTimer() {
+      stopTimer();
+      draftTimeLeft = appData.draftState.timerSeconds || 120;
+      updateTimerDisplay();
+      draftTimer = setInterval(() => {
+        draftTimeLeft--;
+        updateTimerDisplay();
+        if (draftTimeLeft <= 0) {
+          stopTimer();
+          // Auto-pick best available
+          autoPick();
+        }
+      }, 1000);
+    }
+    
+    function stopTimer() {
+      if (draftTimer) {
+        clearInterval(draftTimer);
+        draftTimer = null;
+      }
+    }
+    
+    function updateTimerDisplay() {
+      const el = document.getElementById('draftTimerDisplay');
+      if (el) {
+        const mins = Math.floor(draftTimeLeft / 60);
+        const secs = draftTimeLeft % 60;
+        el.textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
+        el.style.color = draftTimeLeft <= 30 ? '#ef4444' : '#f87171';
+      }
+    }
+    
+    async function autoPick() {
+      const draftedTeams = new Set(appData.draftState.picks?.map(p => p.team) || []);
+      appData.players.forEach(p => p.teams.forEach(t => draftedTeams.add(t)));
+      const available = Object.entries(teamsData)
+        .filter(([name]) => !draftedTeams.has(name))
+        .sort((a, b) => a[1].seed - b[1].seed);
+      if (available.length > 0) {
+        await makePick(available[0][0]);
+      }
+    }
+    
+    function renderDraft() {
+      document.getElementById('draftBoard').innerHTML = appData.players.map(p => {
+        const teams = p.teams.map(t => {
+          const info = teamsData[t]; if (!info) return '';
+          const sc = info.seed <= 4 ? 'seed-1-4' : info.seed <= 8 ? 'seed-5-8' : info.seed <= 12 ? 'seed-9-12' : 'seed-13-16';
+          return `<div class="draft-team" onclick="showTeamPopup('${t}')"><span class="seed-badge ${sc}">${info.seed}</span><span>${t}</span></div>`;
+        }).join('');
+        return `<div class="draft-player">
+          <div class="draft-player-header">
+            <div class="draft-player-avatar" style="background:linear-gradient(135deg,${p.colorPrimary},${p.colorSecondary})">${p.letter}</div>
+            <div><div class="draft-player-name">${p.name}</div><div class="draft-player-count">${p.teams.length} teams</div></div>
+          </div>
+          <div class="draft-player-teams">${teams || '<div style="color:rgba(255,255,255,0.4);font-size:12px;padding:8px">No teams yet</div>'}</div>
+        </div>`;
+      }).join('');
+    }
+    
+    function showTeamPopup(teamName) {
+      const team = teamsData[teamName]; if (!team) return;
+      let owner = null;
+      appData.players.forEach(p => { if (p.teams.includes(teamName)) owner = p; });
+      const champOdds = oddsData.championship[teamName];
+      const ffOdds = oddsData.finalFour[teamName];
+      
+      document.getElementById('teamPopup').innerHTML = `
+        <div class="popup-header" style="background:linear-gradient(135deg,${team.colors[0]},${team.colors[0]}cc)">
+          <button class="popup-close" onclick="closePopup()">✕</button>
+          <div class="popup-team-name">${teamName}</div>
+          <div class="popup-team-info">#${team.seed} Seed · ${team.region} Region · ${team.record}</div>
+        </div>
+        ${champOdds || ffOdds ? `<div class="popup-section">
+          <div class="popup-section-title">Championship Odds</div>
+          <div class="odds-grid">
+            ${champOdds ? `<div class="odds-item"><div class="odds-label">Championship</div><div class="odds-value">${champOdds}</div></div>` : ''}
+            ${ffOdds ? `<div class="odds-item"><div class="odds-label">Final Four</div><div class="odds-value ${ffOdds.startsWith('-')?'negative':''}">${ffOdds}</div></div>` : ''}
+            <div class="odds-item"><div class="odds-label">NET Rank</div><div class="odds-value">#${team.net}</div></div>
+          </div>
+        </div>` : ''}
+        <div class="popup-section">
+          <div class="popup-section-title">Quadrant Record</div>
+          <div class="quadrant-grid">
+            <div class="quadrant-item"><div class="quadrant-label">Q1</div><div class="quadrant-value">${team.q1}</div></div>
+            <div class="quadrant-item"><div class="quadrant-label">Q2</div><div class="quadrant-value">${team.q2}</div></div>
+            <div class="quadrant-item"><div class="quadrant-label">Q3</div><div class="quadrant-value">${team.q3}</div></div>
+            <div class="quadrant-item"><div class="quadrant-label">Q4</div><div class="quadrant-value">${team.q4}</div></div>
+          </div>
+        </div>
+        ${owner ? `<div class="popup-owner">
+          <div class="popup-owner-avatar" style="background:linear-gradient(135deg,${owner.colorPrimary},${owner.colorSecondary})">${owner.letter}</div>
+          <div><div class="popup-owner-label">Drafted by</div><div class="popup-owner-name">${owner.name}</div></div>
+        </div>` : ''}`;
+      document.getElementById('popupOverlay').classList.add('active');
+    }
+    
+    function closePopup() { document.getElementById('popupOverlay').classList.remove('active'); }
+    document.getElementById('popupOverlay').addEventListener('click', e => { if (e.target.id === 'popupOverlay') closePopup(); });
+    
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+    
+    setInterval(loadLiveGames, 30000);
+    setInterval(() => { if (appData?.draftState?.active) loadData(); }, 3000); // Poll draft state
+    loadData();
+  </script>
+</body>
+</html>
 
