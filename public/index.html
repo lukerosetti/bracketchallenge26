@@ -56,7 +56,7 @@
     .standing-card:first-child { background: linear-gradient(135deg, rgba(255,215,0,0.15), rgba(255,180,0,0.08)); border-color: rgba(255,215,0,0.3); }
     .standing-rank { font-size: 24px; width: 36px; text-align: center; }
     .standing-avatar { width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 700; }
-    .standing-info { flex: 1; }
+    .standing-info { flex: 1; min-width: 0; }
     .standing-name { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
     .standing-teams { display: flex; gap: 6px; flex-wrap: wrap; }
     .team-chip { padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 600; border: 1px solid rgba(255,255,255,0.2); cursor: pointer; }
@@ -65,52 +65,70 @@
     .points-current { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: var(--gold); line-height: 1; }
     .points-potential { font-size: 12px; color: rgba(255,255,255,0.5); }
     
-    /* BRACKET STYLES */
-    .bracket-wrapper { overflow-x: auto; padding-bottom: 20px; }
-    .bracket-container { display: flex; gap: 0; min-width: 1200px; align-items: stretch; }
-    .bracket-region { flex: 1; display: flex; flex-direction: column; }
-    .region-label { text-align: center; font-family: 'Bebas Neue', sans-serif; font-size: 16px; letter-spacing: 2px; padding: 8px; margin-bottom: 8px; }
-    .region-label.east, .region-label.south { color: var(--red); }
-    .region-label.west, .region-label.midwest { color: var(--blue); }
+    /* MOBILE-FIRST BRACKET */
+    .bracket-region-tabs { display: flex; gap: 6px; margin-bottom: 16px; overflow-x: auto; padding-bottom: 4px; }
+    .region-tab { flex: 1; min-width: 60px; padding: 10px 8px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; text-align: center; cursor: pointer; transition: all 0.2s; }
+    .region-tab:hover { background: rgba(255,255,255,0.1); }
+    .region-tab.active { border-color: var(--gold); }
+    .region-tab.active.east, .region-tab.active.south { background: linear-gradient(135deg, var(--red), var(--red-dark)); }
+    .region-tab.active.west, .region-tab.active.midwest { background: linear-gradient(135deg, var(--blue), #001845); }
+    .region-tab.active.final-four { background: linear-gradient(135deg, var(--gold), #d4a800); color: #000; }
+    .region-tab-name { font-family: 'Bebas Neue', sans-serif; font-size: 14px; letter-spacing: 1px; }
     
-    .bracket-rounds { display: flex; flex: 1; }
-    .bracket-round { display: flex; flex-direction: column; justify-content: space-around; padding: 4px; min-width: 140px; }
-    .round-label { text-align: center; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.4); margin-bottom: 8px; }
+    /* Round Headers */
+    .round-headers { display: flex; gap: 8px; margin-bottom: 12px; padding: 0 4px; }
+    .round-header { flex: 1; text-align: center; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.5); padding: 6px 4px; background: rgba(255,255,255,0.05); border-radius: 4px; }
     
-    .matchup { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; margin: 4px 0; overflow: hidden; }
-    .matchup.live { border-color: rgba(239,68,68,0.5); background: rgba(239,68,68,0.05); }
-    .matchup-team { display: flex; align-items: center; padding: 6px 8px; cursor: pointer; transition: background 0.2s; gap: 6px; }
-    .matchup-team:hover { background: rgba(255,255,255,0.1); }
-    .matchup-team.winner { background: rgba(0,212,170,0.1); }
+    /* Bracket Grid - Mobile First */
+    .bracket-grid { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 12px; }
+    .bracket-column { min-width: 140px; flex-shrink: 0; display: flex; flex-direction: column; }
+    
+    /* Spacing for bracket columns */
+    .bracket-column.r1 { gap: 4px; }
+    .bracket-column.r2 { gap: 4px; justify-content: space-around; }
+    .bracket-column.r3 { gap: 4px; justify-content: space-around; }
+    .bracket-column.r4 { gap: 4px; justify-content: center; }
+    
+    .matchup { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; overflow: hidden; position: relative; }
+    .matchup.live { border-color: rgba(239,68,68,0.6); background: rgba(239,68,68,0.08); animation: livePulse 2s infinite; }
+    @keyframes livePulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(239,68,68,0.4); } 50% { box-shadow: 0 0 0 4px rgba(239,68,68,0); } }
+    
+    .matchup-team { display: flex; align-items: center; padding: 8px 10px; cursor: pointer; transition: background 0.2s; gap: 8px; }
+    .matchup-team:hover { background: rgba(255,255,255,0.08); }
+    .matchup-team.winner { background: rgba(0,212,170,0.15); }
     .matchup-team.eliminated { opacity: 0.4; }
     .matchup-team.eliminated .team-name { text-decoration: line-through; }
-    .matchup-team + .matchup-team { border-top: 1px solid rgba(255,255,255,0.05); }
+    .matchup-team + .matchup-team { border-top: 1px solid rgba(255,255,255,0.1); }
     
-    .seed-badge { width: 20px; height: 20px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; }
+    .seed-badge { width: 22px; height: 22px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; }
     .seed-1-4 { background: linear-gradient(135deg, var(--gold), #ffb800); color: #000; }
     .seed-5-8 { background: rgba(0,212,170,0.3); color: var(--green); }
     .seed-9-12 { background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.8); }
     .seed-13-16 { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); }
     
-    .team-name { flex: 1; font-size: 11px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .team-score { font-size: 12px; font-weight: 700; min-width: 24px; text-align: right; }
-    .team-owner { width: 18px; height: 18px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; flex-shrink: 0; }
+    .team-name { flex: 1; font-size: 12px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .team-score { font-size: 14px; font-weight: 700; min-width: 28px; text-align: right; }
+    .team-owner { width: 20px; height: 20px; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; }
     
-    .live-badge { background: rgba(239,68,68,0.2); color: #f87171; font-size: 9px; font-weight: 600; padding: 2px 6px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 4px; }
+    .live-badge { background: rgba(239,68,68,0.2); color: #f87171; font-size: 10px; font-weight: 600; padding: 4px 8px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 4px; }
     .live-dot { width: 6px; height: 6px; background: #ef4444; border-radius: 50%; animation: pulse 1.5s infinite; }
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
     
-    .final-four { display: flex; flex-direction: column; justify-content: center; align-items: center; min-width: 160px; padding: 20px 10px; gap: 16px; }
-    .ff-label { font-family: 'Bebas Neue', sans-serif; font-size: 14px; letter-spacing: 2px; color: rgba(255,255,255,0.5); }
-    .ff-matchup { background: linear-gradient(135deg, rgba(191,10,48,0.1), rgba(0,40,104,0.1)); border: 1px solid rgba(255,215,0,0.3); border-radius: 8px; padding: 12px; width: 100%; text-align: center; }
-    .ff-region { font-size: 10px; color: rgba(255,255,255,0.5); margin-bottom: 4px; }
-    .ff-team { font-size: 14px; font-weight: 600; }
-    .championship { background: linear-gradient(135deg, rgba(255,215,0,0.2), rgba(255,180,0,0.1)); border: 2px solid var(--gold); border-radius: 10px; padding: 16px; text-align: center; }
-    .championship .trophy { font-size: 32px; margin-bottom: 8px; }
-    .championship .champ-label { font-size: 10px; color: var(--gold); letter-spacing: 1px; margin-bottom: 4px; }
-    .championship .champ-team { font-family: 'Bebas Neue', sans-serif; font-size: 24px; }
+    .matchup-empty { background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.1); border-radius: 8px; padding: 24px 10px; text-align: center; font-size: 11px; color: rgba(255,255,255,0.3); }
     
-    .matchup-empty { background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.1); border-radius: 6px; margin: 4px 0; padding: 20px 8px; text-align: center; font-size: 10px; color: rgba(255,255,255,0.3); }
+    /* Final Four Layout */
+    .final-four-bracket { display: flex; flex-direction: column; gap: 20px; align-items: center; padding: 20px 0; }
+    .ff-semifinal-row { display: flex; gap: 20px; width: 100%; justify-content: center; flex-wrap: wrap; }
+    .ff-matchup { background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,180,0,0.05)); border: 2px solid rgba(255,215,0,0.3); border-radius: 12px; padding: 16px; min-width: 160px; max-width: 200px; }
+    .ff-matchup-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.5); margin-bottom: 8px; text-align: center; }
+    .ff-team { display: flex; align-items: center; gap: 8px; padding: 8px; background: rgba(255,255,255,0.05); border-radius: 6px; margin-bottom: 6px; cursor: pointer; }
+    .ff-team:last-child { margin-bottom: 0; }
+    .ff-vs { text-align: center; font-size: 10px; color: rgba(255,255,255,0.3); padding: 4px 0; }
+    
+    .championship-matchup { background: linear-gradient(135deg, rgba(255,215,0,0.2), rgba(255,180,0,0.1)); border: 3px solid var(--gold); border-radius: 16px; padding: 20px; text-align: center; min-width: 200px; }
+    .championship-trophy { font-size: 40px; margin-bottom: 8px; }
+    .championship-label { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 2px; color: var(--gold); margin-bottom: 12px; }
+    .championship-teams { display: flex; flex-direction: column; gap: 8px; }
     
     /* Live Tab */
     .live-games { display: flex; flex-direction: column; gap: 12px; }
@@ -120,7 +138,7 @@
     .game-team + .game-team { border-top: 1px solid rgba(255,255,255,0.1); }
     .game-team.winner .team-name { color: var(--green); }
     .game-score { font-size: 18px; font-weight: 700; min-width: 36px; text-align: right; }
-    .game-status { display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: rgba(255,255,255,0.05); border-top: 1px solid rgba(255,255,255,0.1); }
+    .game-status { display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: rgba(255,255,255,0.05); border-top: 1px solid rgba(255,255,255,0.1); flex-wrap: wrap; gap: 8px; }
     .status-live { display: flex; align-items: center; gap: 6px; color: #f87171; font-weight: 600; font-size: 12px; }
     .watch-btn { display: flex; align-items: center; gap: 6px; padding: 6px 12px; background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%); border: none; border-radius: 6px; color: white; font-size: 12px; font-weight: 600; cursor: pointer; text-decoration: none; }
     .channel-badge { padding: 4px 8px; background: rgba(255,255,255,0.1); border-radius: 4px; font-size: 11px; font-weight: 600; }
@@ -134,7 +152,8 @@
     .scoring-item { background: rgba(255,255,255,0.05); padding: 12px; border-radius: 8px; text-align: center; }
     .scoring-round { font-size: 11px; color: rgba(255,255,255,0.5); margin-bottom: 4px; }
     .scoring-points { font-family: 'Bebas Neue', sans-serif; font-size: 28px; }
-    .multiplier-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    .multiplier-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    @media (min-width: 400px) { .multiplier-grid { grid-template-columns: repeat(4, 1fr); } }
     .multiplier-item { background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; text-align: center; }
     .multiplier-seeds { font-size: 12px; color: rgba(255,255,255,0.6); margin-bottom: 4px; }
     .multiplier-value { font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: var(--green); }
@@ -159,7 +178,7 @@
     .draft-order { background: rgba(0,0,0,0.2); border-radius: 12px; padding: 16px; margin-bottom: 20px; }
     .draft-order-title { font-size: 14px; font-weight: 600; margin-bottom: 12px; color: rgba(255,255,255,0.7); }
     .draft-order-list { display: flex; gap: 8px; flex-wrap: wrap; }
-    .draft-order-item { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.1); padding: 8px 14px; border-radius: 8px; cursor: grab; }
+    .draft-order-item { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.1); padding: 8px 14px; border-radius: 8px; }
     .draft-order-item.active { background: var(--green); color: #000; }
     .order-number { width: 24px; height: 24px; background: var(--gold); color: #000; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; }
     .order-avatar { width: 28px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; }
@@ -169,7 +188,7 @@
     .draft-team-btn:hover:not(.drafted) { background: rgba(255,255,255,0.1); border-color: var(--gold); }
     .draft-team-btn.drafted { opacity: 0.3; cursor: not-allowed; }
     
-    .draft-board { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+    .draft-board { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
     .draft-player { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 12px; }
     .draft-player-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
     .draft-player-avatar { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; }
@@ -181,7 +200,7 @@
     /* Popup */
     .popup-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
     .popup-overlay.active { display: flex; }
-    .team-popup { background: var(--navy-light); border-radius: 16px; width: 100%; max-width: 400px; overflow: hidden; border: 1px solid rgba(255,255,255,0.2); }
+    .team-popup { background: var(--navy-light); border-radius: 16px; width: 100%; max-width: 400px; overflow: hidden; border: 1px solid rgba(255,255,255,0.2); max-height: 90vh; overflow-y: auto; }
     .popup-header { padding: 20px; position: relative; }
     .popup-close { position: absolute; top: 12px; right: 12px; width: 32px; height: 32px; background: rgba(255,255,255,0.1); border: none; border-radius: 8px; color: white; font-size: 18px; cursor: pointer; }
     .popup-team-name { font-family: 'Bebas Neue', sans-serif; font-size: 32px; margin-bottom: 4px; }
@@ -207,6 +226,14 @@
     
     .toast { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--green); color: #000; padding: 12px 24px; border-radius: 8px; font-weight: 600; opacity: 0; transition: all 0.3s; z-index: 1000; }
     .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+    
+    /* Desktop enhancements */
+    @media (min-width: 768px) {
+      .header-title h1 { font-size: 36px; }
+      .standing-card { padding: 20px; }
+      .bracket-grid { gap: 12px; }
+      .bracket-column { min-width: 180px; }
+    }
   </style>
 </head>
 <body>
@@ -238,8 +265,20 @@
   
   <main class="content">
     <div class="panel active" id="standings"><div class="standings-list" id="standingsList"></div></div>
-    <div class="panel" id="bracket"><div class="bracket-wrapper"><div class="bracket-container" id="bracketContainer"></div></div></div>
+    
+    <div class="panel" id="bracket">
+      <div class="bracket-region-tabs" id="regionTabs">
+        <div class="region-tab east active" data-region="East"><div class="region-tab-name">EAST</div></div>
+        <div class="region-tab west" data-region="West"><div class="region-tab-name">WEST</div></div>
+        <div class="region-tab south" data-region="South"><div class="region-tab-name">SOUTH</div></div>
+        <div class="region-tab midwest" data-region="Midwest"><div class="region-tab-name">MIDWEST</div></div>
+        <div class="region-tab final-four" data-region="FinalFour"><div class="region-tab-name">🏆 F4</div></div>
+      </div>
+      <div id="bracketContent"></div>
+    </div>
+    
     <div class="panel" id="live"><div class="live-games" id="liveGames"></div></div>
+    
     <div class="panel" id="scoring">
       <div class="scoring-section">
         <div class="scoring-title">Points Per Round</div>
@@ -262,6 +301,7 @@
         </div>
       </div>
     </div>
+    
     <div class="panel" id="draft">
       <div class="draft-controls" id="draftControls">
         <button class="draft-btn primary" onclick="startDraft(false)">🚀 Start Draft</button>
@@ -291,6 +331,7 @@
   <script>
     let appData = null, teamsData = null, oddsData = null, liveScores = {};
     let draftTimer = null, draftTimeLeft = 120;
+    let currentRegion = 'East';
     
     document.querySelectorAll('.tab').forEach(tab => {
       tab.addEventListener('click', () => {
@@ -298,6 +339,15 @@
         document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
         tab.classList.add('active');
         document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+    
+    document.querySelectorAll('.region-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.region-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        currentRegion = tab.dataset.region;
+        renderBracket();
       });
     });
     
@@ -364,62 +414,74 @@
       }).join('');
     }
     
-    function getMatchups(regionTeams) {
-      const sorted = [...regionTeams].sort((a,b) => a.seed - b.seed);
-      const order = [1,16,8,9,5,12,4,13,6,11,3,14,7,10,2,15];
-      const matchups = [];
-      for (let i = 0; i < order.length; i += 2) {
-        const t1 = sorted.find(t => t.seed === order[i]);
-        const t2 = sorted.find(t => t.seed === order[i+1]);
-        matchups.push([t1, t2]);
-      }
-      return matchups;
-    }
+    function getMatchupOrder() { return [[1,16], [8,9], [5,12], [4,13], [6,11], [3,14], [7,10], [2,15]]; }
     
     function renderBracket() {
-      const regions = {left: ['East', 'South'], right: ['West', 'Midwest']};
-      const roundNames = ['R64', 'R32', 'S16', 'E8'];
-      let html = '';
+      if (currentRegion === 'FinalFour') { renderFinalFour(); return; }
       
-      regions.left.forEach(region => {
-        const teams = appData.bracket[region] || [];
-        const matchups = getMatchups(teams);
-        html += `<div class="bracket-region"><div class="region-label ${region.toLowerCase()}">${region.toUpperCase()}</div><div class="bracket-rounds">`;
-        html += `<div class="bracket-round"><div class="round-label">Round 1</div>`;
-        matchups.forEach(([t1, t2]) => { html += renderMatchup(t1, t2); });
-        html += `</div>`;
-        [4, 2, 1].forEach((count, ri) => {
-          html += `<div class="bracket-round"><div class="round-label">${roundNames[ri+1]}</div>`;
-          for (let i = 0; i < count; i++) { html += `<div class="matchup-empty">TBD</div>`; }
-          html += `</div>`;
-        });
-        html += `</div></div>`;
+      const teams = appData.bracket[currentRegion] || [];
+      const matchupOrder = getMatchupOrder();
+      
+      const r1Matchups = matchupOrder.map(([s1, s2]) => {
+        const t1 = teams.find(t => t.seed === s1);
+        const t2 = teams.find(t => t.seed === s2);
+        return [t1, t2];
       });
       
-      html += `<div class="final-four">
-        <div class="ff-label">FINAL FOUR</div>
-        <div class="ff-matchup"><div class="ff-region">East Champion</div><div class="ff-team">TBD</div></div>
-        <div class="ff-matchup"><div class="ff-region">South Champion</div><div class="ff-team">TBD</div></div>
-        <div class="championship"><div class="trophy">🏆</div><div class="champ-label">CHAMPION</div><div class="champ-team">TBD</div></div>
-        <div class="ff-matchup"><div class="ff-region">West Champion</div><div class="ff-team">TBD</div></div>
-        <div class="ff-matchup"><div class="ff-region">Midwest Champion</div><div class="ff-team">TBD</div></div>
-      </div>`;
+      let html = `
+        <div class="round-headers">
+          <div class="round-header">R64</div>
+          <div class="round-header">R32</div>
+          <div class="round-header">S16</div>
+          <div class="round-header">E8</div>
+        </div>
+        <div class="bracket-grid">
+          <div class="bracket-column r1">
+            ${r1Matchups.map(([t1, t2]) => renderMatchup(t1, t2)).join('')}
+          </div>
+          <div class="bracket-column r2">
+            ${[0,1,2,3].map(() => '<div class="matchup-empty">TBD</div>').join('')}
+          </div>
+          <div class="bracket-column r3">
+            ${[0,1].map(() => '<div class="matchup-empty">TBD</div>').join('')}
+          </div>
+          <div class="bracket-column r4">
+            <div class="matchup-empty">→ Final Four</div>
+          </div>
+        </div>
+      `;
       
-      regions.right.forEach(region => {
-        const teams = appData.bracket[region] || [];
-        const matchups = getMatchups(teams);
-        html += `<div class="bracket-region"><div class="region-label ${region.toLowerCase()}">${region.toUpperCase()}</div><div class="bracket-rounds" style="flex-direction:row-reverse">`;
-        [1, 2, 4].forEach((count, ri) => {
-          html += `<div class="bracket-round"><div class="round-label">${roundNames[3-ri]}</div>`;
-          for (let i = 0; i < count; i++) { html += `<div class="matchup-empty">TBD</div>`; }
-          html += `</div>`;
-        });
-        html += `<div class="bracket-round"><div class="round-label">Round 1</div>`;
-        matchups.forEach(([t1, t2]) => { html += renderMatchup(t1, t2); });
-        html += `</div></div></div>`;
-      });
-      
-      document.getElementById('bracketContainer').innerHTML = html;
+      document.getElementById('bracketContent').innerHTML = html;
+    }
+    
+    function renderFinalFour() {
+      document.getElementById('bracketContent').innerHTML = `
+        <div class="final-four-bracket">
+          <div class="ff-semifinal-row">
+            <div class="ff-matchup">
+              <div class="ff-matchup-label">Semifinal 1</div>
+              <div class="ff-team"><span class="seed-badge seed-1-4">E</span><span class="team-name">East Champion</span></div>
+              <div class="ff-vs">VS</div>
+              <div class="ff-team"><span class="seed-badge seed-1-4">W</span><span class="team-name">West Champion</span></div>
+            </div>
+            <div class="ff-matchup">
+              <div class="ff-matchup-label">Semifinal 2</div>
+              <div class="ff-team"><span class="seed-badge seed-1-4">S</span><span class="team-name">South Champion</span></div>
+              <div class="ff-vs">VS</div>
+              <div class="ff-team"><span class="seed-badge seed-1-4">M</span><span class="team-name">Midwest Champion</span></div>
+            </div>
+          </div>
+          <div class="championship-matchup">
+            <div class="championship-trophy">🏆</div>
+            <div class="championship-label">NATIONAL CHAMPIONSHIP</div>
+            <div class="championship-teams">
+              <div class="ff-team"><span class="team-name">Winner Semifinal 1</span></div>
+              <div class="ff-vs">VS</div>
+              <div class="ff-team"><span class="team-name">Winner Semifinal 2</span></div>
+            </div>
+          </div>
+        </div>
+      `;
     }
     
     function renderMatchup(t1, t2) {
@@ -498,7 +560,6 @@
       }
     }
     
-    // DRAFT FUNCTIONS
     function renderDraftOrder() {
       const order = appData.draftState.order.length > 0 ? appData.draftState.order : [0, 1, 2, 3];
       document.getElementById('draftOrderList').innerHTML = order.map((playerIdx, i) => {
@@ -578,7 +639,7 @@
     }
     
     async function startDraft(testMode) {
-      const order = [0, 1, 2, 3]; // Default order
+      const order = [0, 1, 2, 3];
       await fetch('/api/draft/start', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -624,20 +685,11 @@
       draftTimer = setInterval(() => {
         draftTimeLeft--;
         updateTimerDisplay();
-        if (draftTimeLeft <= 0) {
-          stopTimer();
-          // Auto-pick best available
-          autoPick();
-        }
+        if (draftTimeLeft <= 0) { stopTimer(); autoPick(); }
       }, 1000);
     }
     
-    function stopTimer() {
-      if (draftTimer) {
-        clearInterval(draftTimer);
-        draftTimer = null;
-      }
-    }
+    function stopTimer() { if (draftTimer) { clearInterval(draftTimer); draftTimer = null; } }
     
     function updateTimerDisplay() {
       const el = document.getElementById('draftTimerDisplay');
@@ -652,12 +704,8 @@
     async function autoPick() {
       const draftedTeams = new Set(appData.draftState.picks?.map(p => p.team) || []);
       appData.players.forEach(p => p.teams.forEach(t => draftedTeams.add(t)));
-      const available = Object.entries(teamsData)
-        .filter(([name]) => !draftedTeams.has(name))
-        .sort((a, b) => a[1].seed - b[1].seed);
-      if (available.length > 0) {
-        await makePick(available[0][0]);
-      }
+      const available = Object.entries(teamsData).filter(([name]) => !draftedTeams.has(name)).sort((a, b) => a[1].seed - b[1].seed);
+      if (available.length > 0) await makePick(available[0][0]);
     }
     
     function renderDraft() {
@@ -725,9 +773,8 @@
     }
     
     setInterval(loadLiveGames, 30000);
-    setInterval(() => { if (appData?.draftState?.active) loadData(); }, 3000); // Poll draft state
+    setInterval(() => { if (appData?.draftState?.active) loadData(); }, 3000);
     loadData();
   </script>
 </body>
 </html>
-
